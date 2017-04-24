@@ -20,6 +20,14 @@ The following user stories are  **optional**
 - [ ] Alerts for upcoming events at the restaurant
 - [ ] Lunch, Dinner specials
 
+## Wireframes:
+1. Restaurant Owner's View:
+![owner view](./images/owner_view.png "Owner")
+2. Restaurant Customer's View:
+![customer view](./images/customerview1.png "Customer")
+
+![customer view](./images/customerview2.png "Customer")
+
 
 ## Video Walkthrough
 
