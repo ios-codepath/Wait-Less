@@ -4,13 +4,21 @@ Wait-less gives diners a more intimate experience by allowing them to spend more
 
 ## User Stories
 
-The following **required** functionality is completed:
+The following user stories are **required**:
 
 - [ ] Restaurant layout
 - [ ] Detail view of each table
 - [ ] Clients can view the menu and place orders
-- [ ] Clients can see their receipt.
+- [ ] Clients can see their receipt
+- [ ] Clients can summon the waiter or the manager
+- [ ] Clients can see the live status of their order placed
+- [ ] Clients can pay for their order
 
+The following user stories are  **optional**
+
+- [ ] Popular orders today
+- [ ] Alerts for upcoming events at the restaurant
+- [ ] Lunch, Dinner specials
 
 
 ## Video Walkthrough
