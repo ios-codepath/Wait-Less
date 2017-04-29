@@ -10,7 +10,17 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
+    enum Section: Int {
+        case order
+        case pending
+    }
+    
+    
     @IBOutlet weak var menuTableView: UITableView!
+    var selectedIndexPath: IndexPath?
+    
+    var clearButton: UIButton!
+    var orderButton: UIButton!
     
     var menuTestData = [MenuItem(name: "Some really long description", price: 9.99),
                         MenuItem(name: "Spaghetti", price: 7.99),
@@ -28,6 +38,13 @@ class MenuViewController: UIViewController {
         numberFormatter.locale = Locale.current
         numberFormatter.numberStyle = .currency
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let selectedIndexPath = selectedIndexPath {
+            menuTableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,16 +52,27 @@ class MenuViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showMenuDetailViewController" {
+            let destination = segue.destination as! MenuDetailViewController
+            
+            if let selectedIndexPath = selectedIndexPath {
+                destination.menuItem = menuTestData[selectedIndexPath.row]
+            }
+        }
     }
-    */
-
+    
+    func handleClear(_ sender: UIButton) {
+        print("clear")
+    }
+    
+    func handleOrder(_ sender: UIButton) {
+        print("order")
+    }
 }
 
 extension MenuViewController: UITableViewDataSource {
@@ -53,7 +81,7 @@ extension MenuViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == Section.order.rawValue {
             return menuTestData.count
         } else {
             return pendingItems.count
@@ -66,18 +94,12 @@ extension MenuViewController: UITableViewDataSource {
         cell.delegate = self
         cell.numberFormatter = numberFormatter
         
-        if indexPath.section == 0 {
-            cell.orderButton.setTitle("+", for: .normal)
-            cell.orderButton.setTitle("+", for: .highlighted)
-            cell.orderButton.setTitle("+", for: .selected)
-            
+        if indexPath.section == Section.order.rawValue {
+            cell.isAdding = true
             cell.menuItem = menuTestData[indexPath.row]
             return cell
         } else {
-            cell.orderButton.setTitle("-", for: .normal)
-            cell.orderButton.setTitle("-", for: .highlighted)
-            cell.orderButton.setTitle("-", for: .selected)
-            
+            cell.isAdding = false
             cell.menuItem = pendingItems[indexPath.row]
         }
         
@@ -85,33 +107,73 @@ extension MenuViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
+        if section == Section.order.rawValue {
             return ""
         } else {
             return "Selected Items"
         }
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == Section.order.rawValue {
+            return nil
+        }
+        
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 100))
+        clearButton = UIButton(type: .roundedRect)
+        clearButton.translatesAutoresizingMaskIntoConstraints = false
+        clearButton.setTitle("Clear", for: .normal)
+        clearButton.addTarget(self, action: #selector(MenuViewController.handleClear(_:)), for: .touchUpInside)
+        footer.addSubview(clearButton)
+        
+        orderButton = UIButton(type: .roundedRect)
+        orderButton.translatesAutoresizingMaskIntoConstraints = false
+        orderButton.setTitle("Order", for: .normal)
+        orderButton.addTarget(self, action: #selector(MenuViewController.handleOrder(_:)), for: .touchUpInside)
+        footer.addSubview(orderButton)
+        
+        let views: [String: AnyObject] = ["clearButton" : clearButton,
+                                          "orderButton" : orderButton,
+                                          "view": view]
+        var constraints = [NSLayoutConstraint]()
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[clearButton(==orderButton)]-[orderButton]-|", options: [NSLayoutFormatOptions.alignAllFirstBaseline], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[clearButton]-|", options: [], metrics: nil, views: views)
+        NSLayoutConstraint.activate(constraints)
+
+        return footer
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == Section.order.rawValue {
+            return 0
+        }
+        
+        return 100
+    }
 }
 
 extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
         
+        performSegue(withIdentifier: "showMenuDetailViewController", sender: self)
     }
 }
 
 extension MenuViewController: MenuItemTableViewCellDelegate {
     func menuItemTableViewCellDelegate(_ cell: MenuItemTableViewCell, didOrder menuItem: MenuItem) {
         if cell.orderButton.title(for: .normal) == "+" {
-            
-            
+            let totalPending = pendingItems.count
+            let newIndexPath = IndexPath(row: totalPending, section: 1)
             pendingItems.append(menuItem)
+            menuTableView.insertRows(at: [newIndexPath], with: .fade)
         } else {
             if let indexPath = menuTableView.indexPath(for: cell) {
                 pendingItems.remove(at: indexPath.row)
+                menuTableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
         
-        menuTableView.reloadData()
         print(menuItem.price)
         print(menuItem.name)
     }

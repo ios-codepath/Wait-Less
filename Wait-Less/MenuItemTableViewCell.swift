@@ -41,6 +41,20 @@ class MenuItemTableViewCell: UITableViewCell {
         }
     }
     
+    var isAdding: Bool! {
+        didSet {
+            if isAdding {
+                orderButton.setTitle("+", for: .normal)
+                orderButton.setTitle("+", for: .highlighted)
+                orderButton.setTitle("+", for: .selected)
+            } else {
+                orderButton.setTitle("-", for: .normal)
+                orderButton.setTitle("-", for: .highlighted)
+                orderButton.setTitle("-", for: .selected)
+            }
+        }
+    }
+    
     @IBAction func onOrderButton(_ sender: Any) {
         delegate?.menuItemTableViewCellDelegate(self, didOrder: menuItem)
     }

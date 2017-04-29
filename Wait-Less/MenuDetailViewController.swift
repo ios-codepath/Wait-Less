@@ -10,6 +10,10 @@ import UIKit
 
 class MenuDetailViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +24,12 @@ class MenuDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    var menuItem: MenuItem! {
+        didSet {
+            
+        }
+    }
 
     /*
     // MARK: - Navigation
