@@ -9,11 +9,14 @@
 import UIKit
 
 class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
-                                UICollectionViewDelegate, UICollectionViewDataSource {
+UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
+    var tables = [Table]()
+    var menus = [Menu]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -22,11 +25,31 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         collectionView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+
+        Table().getTables(success: { tables in
+            self.tables = tables
+            self.collectionView.reloadData()
+        }, failure: { error in
+            print(error)
+        })
+    }
+
+    @IBAction func onToggle(_ sender: UISegmentedControl) {
+        if collectionView.isHidden {
+            tableView.isHidden = true
+            collectionView.isHidden = false
+        } else {
+            tableView.isHidden = false
+            collectionView.isHidden = true
+        }
+    }
+
+    @IBAction func onSummon(_ sender: UIBarButtonItem) {
     }
 
     //MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return menus.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,12 +58,13 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
 
     //MARK: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return tables.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "TableCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TableCell", for: indexPath) as! TableCell
+        cell.updateCell()
+        return cell
     }
-
 }
 
