@@ -6,7 +6,8 @@
 //  Copyright © 2017 Jonathan Wong. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import Parse
 
 class MenuItem {
     var name: String!

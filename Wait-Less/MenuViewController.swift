@@ -22,13 +22,9 @@ class MenuViewController: UIViewController {
     var clearButton: UIButton!
     var orderButton: UIButton!
     
-    var menuTestData = [MenuItem(name: "Some really long description", price: 9.99),
-                        MenuItem(name: "Spaghetti", price: 7.99),
-                        MenuItem(name: "Chicken Milano", price: 12.99),
-                        MenuItem(name: "Chicken Marsala", price: 12.99),
-                        MenuItem(name: "Pancetta", price: 8.99),
-                        MenuItem(name: "Mushroom Risotto", price: 11.99)]
-    var pendingItems = [MenuItem]()
+    var pendingItems = [Menu]()
+    var menues = [Menu]()
+    
     
     let numberFormatter = NumberFormatter()
     
@@ -37,6 +33,17 @@ class MenuViewController: UIViewController {
 
         numberFormatter.locale = Locale.current
         numberFormatter.numberStyle = .currency
+        
+        Menu().getMenues(success: {
+            menues in
+            self.menues = menues
+            self.menuTableView.reloadData()
+            print(self.menues)
+        }, failure: {
+            error in
+            print(error)
+        })
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,7 +68,8 @@ class MenuViewController: UIViewController {
             let destination = segue.destination as! MenuDetailViewController
             
             if let selectedIndexPath = selectedIndexPath {
-                destination.menuItem = menuTestData[selectedIndexPath.row]
+                destination.menuItem = menues[selectedIndexPath.row]
+                destination.numberFormatter = numberFormatter
             }
         }
     }
@@ -82,7 +90,7 @@ extension MenuViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == Section.order.rawValue {
-            return menuTestData.count
+            return menues.count
         } else {
             return pendingItems.count
         }
@@ -96,7 +104,7 @@ extension MenuViewController: UITableViewDataSource {
         
         if indexPath.section == Section.order.rawValue {
             cell.isAdding = true
-            cell.menuItem = menuTestData[indexPath.row]
+            cell.menuItem = menues[indexPath.row]
             return cell
         } else {
             cell.isAdding = false
@@ -161,7 +169,7 @@ extension MenuViewController: UITableViewDelegate {
 }
 
 extension MenuViewController: MenuItemTableViewCellDelegate {
-    func menuItemTableViewCellDelegate(_ cell: MenuItemTableViewCell, didOrder menuItem: MenuItem) {
+    func menuItemTableViewCellDelegate(_ cell: MenuItemTableViewCell, didOrder menuItem: Menu) {
         if cell.orderButton.title(for: .normal) == "+" {
             let totalPending = pendingItems.count
             let newIndexPath = IndexPath(row: totalPending, section: 1)

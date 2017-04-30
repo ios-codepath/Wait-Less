@@ -20,14 +20,12 @@
 		295770FC9520EBAE5A35DA39 /* Pods_Wait_Less.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606B74E5FF53CD3E47ABD09F /* Pods_Wait_Less.framework */; };
 		FC7B40F61EAD9EF10076D979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B40F51EAD9EF10076D979 /* AppDelegate.swift */; };
 		FC7B40FB1EAD9EF10076D979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7B40F91EAD9EF10076D979 /* Main.storyboard */; };
-		FC7B40FE1EAD9EF10076D979 /* Wait_Less.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC7B40FC1EAD9EF10076D979 /* Wait_Less.xcdatamodeld */; };
 		FC7B41001EAD9EF10076D979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7B40FF1EAD9EF10076D979 /* Assets.xcassets */; };
 		FC7B41031EAD9EF10076D979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7B41011EAD9EF10076D979 /* LaunchScreen.storyboard */; };
 		FC97A72A1EB05F5800516774 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC97A7281EB05F5800516774 /* Menu.storyboard */; };
 		FC97A72F1EB05FF800516774 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97A72E1EB05FF800516774 /* MenuViewController.swift */; };
 		FC97A7311EB0600600516774 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97A7301EB0600600516774 /* MenuDetailViewController.swift */; };
 		FC97A7331EB0624D00516774 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97A7321EB0624D00516774 /* MenuItemTableViewCell.swift */; };
-		FC97A7351EB0640400516774 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97A7341EB0640400516774 /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +45,6 @@
 		FC7B40F21EAD9EF10076D979 /* Wait-Less.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wait-Less.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC7B40F51EAD9EF10076D979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC7B40FA1EAD9EF10076D979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FC7B40FD1EAD9EF10076D979 /* Wait_Less.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wait_Less.xcdatamodel; sourceTree = "<group>"; };
 		FC7B40FF1EAD9EF10076D979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC7B41021EAD9EF10076D979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC7B41041EAD9EF10076D979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,7 +52,6 @@
 		FC97A72E1EB05FF800516774 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		FC97A7301EB0600600516774 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		FC97A7321EB0624D00516774 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
-		FC97A7341EB0640400516774 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +101,6 @@
 		1C4542DA1EB2EFEF00A9C981 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FC97A7341EB0640400516774 /* MenuItem.swift */,
 				1C4542DB1EB2F06900A9C981 /* Menu.swift */,
 				1C4542DD1EB2F07900A9C981 /* Table.swift */,
 			);
@@ -160,7 +155,6 @@
 				FC7B40FF1EAD9EF10076D979 /* Assets.xcassets */,
 				FC7B41011EAD9EF10076D979 /* LaunchScreen.storyboard */,
 				FC7B41041EAD9EF10076D979 /* Info.plist */,
-				FC7B40FC1EAD9EF10076D979 /* Wait_Less.xcdatamodeld */,
 			);
 			path = "Wait-Less";
 			sourceTree = "<group>";
@@ -298,13 +292,10 @@
 				1C4542DC1EB2F06900A9C981 /* Menu.swift in Sources */,
 				1C4542DE1EB2F07900A9C981 /* Table.swift in Sources */,
 				1C4542D91EB2EF7E00A9C981 /* TableCell.swift in Sources */,
-				FC7B40FE1EAD9EF10076D979 /* Wait_Less.xcdatamodeld in Sources */,
 				1C4542D11EB2ED4600A9C981 /* RestaurantViewController.swift in Sources */,
 				1C4542D71EB2EF0300A9C981 /* MenuCell.swift in Sources */,
 				FC97A7311EB0600600516774 /* MenuDetailViewController.swift in Sources */,
-				FC7B40FE1EAD9EF10076D979 /* Wait_Less.xcdatamodeld in Sources */,
 				FC97A72F1EB05FF800516774 /* MenuViewController.swift in Sources */,
-				FC97A7351EB0640400516774 /* MenuItem.swift in Sources */,
 				FC7B40F61EAD9EF10076D979 /* AppDelegate.swift in Sources */,
 				FC97A7331EB0624D00516774 /* MenuItemTableViewCell.swift in Sources */,
 			);
@@ -487,19 +478,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		FC7B40FC1EAD9EF10076D979 /* Wait_Less.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FC7B40FD1EAD9EF10076D979 /* Wait_Less.xcdatamodel */,
-			);
-			currentVersion = FC7B40FD1EAD9EF10076D979 /* Wait_Less.xcdatamodel */;
-			path = Wait_Less.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = FC7B40EA1EAD9EF10076D979 /* Project object */;
 }

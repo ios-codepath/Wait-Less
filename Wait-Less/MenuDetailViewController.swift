@@ -12,12 +12,20 @@ class MenuDetailViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var menuDescriptionLabel: UILabel!
     
+    var menuItem: Menu!
+    var numberFormatter: NumberFormatter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        nameLabel.text = menuItem.name
+        menuDescriptionLabel.text = menuItem.menuDescription
+        
+        if let formatted = numberFormatter?.string(from: menuItem.price as NSNumber) {
+            priceLabel.text = formatted
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,11 +33,6 @@ class MenuDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var menuItem: MenuItem! {
-        didSet {
-            
-        }
-    }
 
     /*
     // MARK: - Navigation
