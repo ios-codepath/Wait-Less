@@ -11,13 +11,15 @@ import Parse
 
 class Table: NSObject {
 
-    var tableNumber: Int?
-    var capacity: Int?
+    var tableNumber: String?
+    var capacity: String?
     var status: Bool = false
+    var tableData: PFObject
 
     init(tableData: PFObject) {
-        tableNumber = tableData.object(forKey: "tableNumber") as? Int
-        capacity = tableData.object(forKey: "capacity") as? Int
+        self.tableData = tableData
+        tableNumber = tableData.object(forKey: "tableNumber") as? String
+        capacity = tableData.object(forKey: "capacity") as? String
         status = tableData.object(forKey: "status") as? Bool ?? false
     }
 
@@ -45,5 +47,11 @@ class Table: NSObject {
                 failure(error!)
             }
         }
+    }
+
+    func reserveTable() {
+        status = !status
+        tableData["status"] = status
+        tableData.saveInBackground()
     }
 }

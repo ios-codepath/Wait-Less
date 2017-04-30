@@ -9,7 +9,7 @@
 import UIKit
 
 class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
-UICollectionViewDelegate, UICollectionViewDataSource {
+UICollectionViewDelegate, UICollectionViewDataSource, TableCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -63,8 +63,14 @@ UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TableCell", for: indexPath) as! TableCell
-        cell.updateCell()
+        cell.tableData = tables[indexPath.row]
+        cell.delegate = self
         return cell
+    }
+
+    func tableCellUpdate(cell: TableCell) {
+        let indexPath = collectionView.indexPath(for: cell)
+        collectionView.reloadItems(at: [indexPath!])
     }
 }
 
