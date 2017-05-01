@@ -14,6 +14,7 @@ class Menu: NSObject {
     var name: String!
     var price: Double!
     var menuDescription: String!
+    var imageName: String!
     var menuData: PFObject!
     
     init(menuData: PFObject) {
@@ -21,6 +22,7 @@ class Menu: NSObject {
         self.name = menuData.object(forKey: "name") as? String
         self.price = menuData.object(forKey: "price") as? Double
         self.menuDescription = menuData.object(forKey: "description") as? String
+        self.imageName = menuData.object(forKey: "imageName") as? String
     }
     
     convenience override init() {

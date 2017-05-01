@@ -107,6 +107,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mLN-Kb-9wZ">
+                                <rect key="frame" x="0.0" y="130" width="375" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="SxS-rM-aTY"/>
+                                    <constraint firstAttribute="height" constant="210" id="ctN-fY-Qxw"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Item Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vV-02-WxZ">
                                 <rect key="frame" x="16" y="72" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
@@ -120,35 +127,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3D-3A-6vg">
-                                <rect key="frame" x="16" y="360" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="348" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pasta.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mLN-Kb-9wZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="210"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="SxS-rM-aTY"/>
-                                    <constraint firstAttribute="height" constant="210" id="ctN-fY-Qxw"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="55L-zj-uaE" firstAttribute="top" secondItem="5vV-02-WxZ" secondAttribute="bottom" constant="8" id="0Xs-3S-2N4"/>
-                            <constraint firstItem="o3D-3A-6vg" firstAttribute="top" secondItem="mLN-Kb-9wZ" secondAttribute="bottom" constant="86" id="8um-DE-JNV"/>
+                            <constraint firstItem="o3D-3A-6vg" firstAttribute="top" secondItem="mLN-Kb-9wZ" secondAttribute="bottom" constant="8" id="8um-DE-JNV"/>
                             <constraint firstItem="mLN-Kb-9wZ" firstAttribute="leading" secondItem="ue5-Rx-L18" secondAttribute="leading" id="AL4-16-Q78"/>
                             <constraint firstItem="o3D-3A-6vg" firstAttribute="trailing" secondItem="ue5-Rx-L18" secondAttribute="trailingMargin" id="Ff3-2c-pc5"/>
+                            <constraint firstItem="mLN-Kb-9wZ" firstAttribute="top" secondItem="55L-zj-uaE" secondAttribute="bottom" constant="8" id="KsG-zu-czG"/>
                             <constraint firstItem="o3D-3A-6vg" firstAttribute="leading" secondItem="ue5-Rx-L18" secondAttribute="leadingMargin" id="Ku2-cj-KXq"/>
                             <constraint firstItem="5vV-02-WxZ" firstAttribute="top" secondItem="QbJ-Nf-SmQ" secondAttribute="bottom" constant="8" id="YWX-Mh-ix8"/>
                             <constraint firstItem="55L-zj-uaE" firstAttribute="trailing" secondItem="5vV-02-WxZ" secondAttribute="trailing" id="aXQ-pO-EMG"/>
-                            <constraint firstItem="mLN-Kb-9wZ" firstAttribute="top" secondItem="QbJ-Nf-SmQ" secondAttribute="bottom" id="iOn-Oq-iGI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5vV-02-WxZ" secondAttribute="trailing" id="oge-WR-oQH"/>
                             <constraint firstItem="5vV-02-WxZ" firstAttribute="leading" secondItem="ue5-Rx-L18" secondAttribute="leadingMargin" id="zW1-fI-jmm"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="menuDescriptionLabel" destination="o3D-3A-6vg" id="t4n-Ga-Qum"/>
+                        <outlet property="menuImageView" destination="mLN-Kb-9wZ" id="4Gb-qy-wal"/>
                         <outlet property="nameLabel" destination="5vV-02-WxZ" id="zkB-dQ-XuZ"/>
                         <outlet property="priceLabel" destination="55L-zj-uaE" id="0yN-FV-xhZ"/>
                     </connections>
@@ -176,7 +177,4 @@
             <point key="canvasLocation" x="-79.200000000000003" y="131.78410794602701"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="pasta.jpg" width="960" height="960"/>
-    </resources>
 </document>
