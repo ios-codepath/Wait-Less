@@ -85,7 +85,16 @@ UICollectionViewDelegate, UICollectionViewDataSource, TableCellDelegate {
     }
 
     @objc private func handleClear(_ sender: UIButton) {
-        print("clear")
+        let itemCount = pendingItems.count
+        pendingItems.removeAll()
+        
+        menuTableView.beginUpdates()
+        for index in 0..<itemCount {
+            print(index)
+            let indexPath = IndexPath(row: index, section: Section.pending.rawValue)
+            menuTableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        menuTableView.endUpdates()
     }
 
     @objc private func handleOrder(_ sender: UIButton) {
