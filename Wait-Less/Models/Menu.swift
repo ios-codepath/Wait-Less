@@ -29,23 +29,23 @@ class Menu: NSObject {
         self.init(menuData: PFObject.init(className: ""))
     }
     
-    class func menuesArray(array: [PFObject]) -> [Menu] {
-        var menues = [Menu]()
+    class func menuItemsArray(array: [PFObject]) -> [Menu] {
+        var menuItems = [Menu]()
         for menu in array {
             print(menu)
-            menues.append(Menu(menuData: menu))
+            menuItems.append(Menu(menuData: menu))
         }
-        return menues
+        return menuItems
     }
     
-    func getMenues(success: @escaping ([Menu]) -> Void, failure: @escaping (Error) -> Void) {
-        var menues = [Menu]()
+    func getMenuItems(success: @escaping ([Menu]) -> Void, failure: @escaping (Error) -> Void) {
+        var menuItems = [Menu]()
         
         let query = PFQuery(className: "Menu")
         query.findObjectsInBackground { (pfObjects, error) in
             if (!(error != nil)) {
-                menues = Menu.menuesArray(array: pfObjects!)
-                success(menues)
+                menuItems = Menu.menuItemsArray(array: pfObjects!)
+                success(menuItems)
             } else {
                 failure(error!)
             }
