@@ -41,7 +41,7 @@ class MenuItemTableViewCell: UITableViewCell {
         }
     }
     
-    var isAdding: Bool! {
+    var isAdding: Bool = false {
         didSet {
             if isAdding {
                 orderButton.setTitle("+", for: .normal)

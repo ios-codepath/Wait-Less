@@ -18,6 +18,8 @@
 		1C4542DE1EB2F07900A9C981 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4542DD1EB2F07900A9C981 /* Table.swift */; };
 		1C4542E01EB2FC8200A9C981 /* pasta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4542DF1EB2FC8200A9C981 /* pasta.jpg */; };
 		295770FC9520EBAE5A35DA39 /* Pods_Wait_Less.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606B74E5FF53CD3E47ABD09F /* Pods_Wait_Less.framework */; };
+		EBE544AF1EBC0B7400FF0B7E /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE544AE1EBC0B7400FF0B7E /* OrderDetailViewController.swift */; };
+		EBE544B11EBC0BED00FF0B7E /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE544B01EBC0BED00FF0B7E /* BillViewController.swift */; };
 		FC7B40F61EAD9EF10076D979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B40F51EAD9EF10076D979 /* AppDelegate.swift */; };
 		FC7B40FB1EAD9EF10076D979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7B40F91EAD9EF10076D979 /* Main.storyboard */; };
 		FC7B41001EAD9EF10076D979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7B40FF1EAD9EF10076D979 /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 		44483B10638E6FD8D660EA7E /* Pods-Wait-Less.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wait-Less.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wait-Less/Pods-Wait-Less.release.xcconfig"; sourceTree = "<group>"; };
 		606B74E5FF53CD3E47ABD09F /* Pods_Wait_Less.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wait_Less.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		757E8ED10FE6AA805ECE279F /* Pods-Wait-Less.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wait-Less.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wait-Less/Pods-Wait-Less.debug.xcconfig"; sourceTree = "<group>"; };
+		EBE544AE1EBC0B7400FF0B7E /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
+		EBE544B01EBC0BED00FF0B7E /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 		FC7B40F21EAD9EF10076D979 /* Wait-Less.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wait-Less.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC7B40F51EAD9EF10076D979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC7B40FA1EAD9EF10076D979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			children = (
 				1C4542D01EB2ED4600A9C981 /* RestaurantViewController.swift */,
 				FC97A7301EB0600600516774 /* MenuDetailViewController.swift */,
+				EBE544AE1EBC0B7400FF0B7E /* OrderDetailViewController.swift */,
+				EBE544B01EBC0BED00FF0B7E /* BillViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -282,12 +288,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBE544AF1EBC0B7400FF0B7E /* OrderDetailViewController.swift in Sources */,
 				1C4542DC1EB2F06900A9C981 /* Menu.swift in Sources */,
 				1C4542DE1EB2F07900A9C981 /* Table.swift in Sources */,
 				1C4542D91EB2EF7E00A9C981 /* TableCell.swift in Sources */,
 				1C4542D11EB2ED4600A9C981 /* RestaurantViewController.swift in Sources */,
 				1C4542D71EB2EF0300A9C981 /* MenuCell.swift in Sources */,
 				FC97A7311EB0600600516774 /* MenuDetailViewController.swift in Sources */,
+				EBE544B11EBC0BED00FF0B7E /* BillViewController.swift in Sources */,
 				FC7B40F61EAD9EF10076D979 /* AppDelegate.swift in Sources */,
 				FC97A7331EB0624D00516774 /* MenuItemTableViewCell.swift in Sources */,
 			);
