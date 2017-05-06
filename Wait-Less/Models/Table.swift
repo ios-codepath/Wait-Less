@@ -49,9 +49,11 @@ class Table: NSObject {
         }
     }
 
-    func reserveTable() {
+    func reserveTable(customerName: String, phone: String) {
         status = !status
         tableData["status"] = status
+        tableData["customerName"] = customerName
+        tableData["phone"] = phone
         tableData.saveInBackground()
     }
 }

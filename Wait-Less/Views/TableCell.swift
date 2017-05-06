@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol TableCellDelegate {
-    @objc optional func tableCellUpdate(cell: TableCell) -> Void
+    @objc optional func tableCellUpdate(tableData: Table) -> Void
 }
 
 class TableCell: UICollectionViewCell {
@@ -54,8 +54,6 @@ class TableCell: UICollectionViewCell {
     }
     
     @IBAction func reserveButtonTapped(_ sender: UIButton) {
-        tableData.reserveTable()
-        onTap()
-        delegate?.tableCellUpdate!(cell: self)
+        delegate?.tableCellUpdate!(tableData: tableData)
     }
 }

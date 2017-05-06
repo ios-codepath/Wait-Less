@@ -14,7 +14,7 @@ enum Section: Int {
 }
 
 class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
-UICollectionViewDelegate, UICollectionViewDataSource, TableCellDelegate {
+UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDelegate, CustomerViewDelegate {
     
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -24,6 +24,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, TableCellDelegate {
     var pendingItems = [Menu]()
     var menuItems = [Menu]()
     var tables = [Table]()
+    var tableToReserve: Table?
     let numberFormatter = NumberFormatter()
 
     override func viewDidLoad() {
@@ -187,9 +188,35 @@ UICollectionViewDelegate, UICollectionViewDataSource, TableCellDelegate {
         return cell
     }
 
-    func tableCellUpdate(cell: TableCell) {
-        let indexPath = collectionView.indexPath(for: cell)
-        collectionView.reloadItems(at: [indexPath!])
+    func tableCellUpdate(tableData: Table) {
+        tableToReserve = tableData
+        let percentageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CustomerViewController") as!CustomerViewController
+        percentageViewController.delegate = self
+        let navigationController = UINavigationController(rootViewController: percentageViewController)
+        navigationController.modalPresentationStyle = UIModalPresentationStyle.popover
+
+        let popover = navigationController.popoverPresentationController
+        popover?.permittedArrowDirections = UIPopoverArrowDirection(rawValue:0)
+        percentageViewController.preferredContentSize = CGSize(width: 300, height: 175)
+        popover?.delegate = self
+        popover?.sourceView = self.view
+        popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+
+        self.present(navigationController, animated: true, completion: nil)
+    }
+
+    //MARK: - UIPopoverPresentationControllerDelegate
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
+    }
+
+    func submittedCustomerInfo(customerName: UITextField, phoneNumber: UITextField) {
+        if customerName.text != "" && phoneNumber.text != "" && tableToReserve?.status == true {
+            tableToReserve?.reserveTable(customerName: customerName.text!, phone: phoneNumber.text!)
+            let index = tables.index(of: tableToReserve!)
+            let indexPath = IndexPath(row: index!, section: 0)
+            collectionView.reloadItems(at: [indexPath])
+        }
     }
 }
 
