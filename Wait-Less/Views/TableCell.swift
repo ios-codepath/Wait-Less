@@ -43,7 +43,7 @@ class TableCell: UICollectionViewCell {
         self.addGestureRecognizer(tapGesture)
     }
 
-    @objc private func onTap() {
+    @objc func onTap() {
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
         UIView.transition(with: self.tableItem, duration: 1.0, options: transitionOptions, animations: {
             self.tableImageView.isHidden = !self.tableImageView.isHidden

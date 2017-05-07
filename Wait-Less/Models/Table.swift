@@ -15,12 +15,18 @@ class Table: NSObject {
     var capacity: String?
     var status: Bool = false
     var tableData: PFObject
+    var reservedTimes = [Int]()
+    var customerNames = [String]()
+    var phoneNumbers = [String]()
 
     init(tableData: PFObject) {
         self.tableData = tableData
         tableNumber = tableData.object(forKey: "tableNumber") as? String
         capacity = tableData.object(forKey: "capacity") as? String
-        status = tableData.object(forKey: "status") as? Bool ?? false
+        status =  tableData.object(forKey: "status") as? Bool ?? false
+        if let times = tableData.object(forKey: "reservedTimes") as? [Int] {
+            reservedTimes = times
+        }
     }
 
     convenience override init() {
@@ -49,11 +55,17 @@ class Table: NSObject {
         }
     }
 
-    func reserveTable(customerName: String, phone: String) {
-        status = !status
+    func reserveTable(customerName: String, phone: String, reserveTime: Int) {
+        status = reservedTimes.count < 12
         tableData["status"] = status
-        tableData["customerName"] = customerName
-        tableData["phone"] = phone
+        customerNames.append(customerName)
+        phoneNumbers.append(phone)
+        tableData["customerNames"] = customerNames
+        tableData["phoneNumbers"] = phoneNumbers
+        if !reservedTimes.contains(reserveTime) {
+            reservedTimes.append(reserveTime)
+        }
+        tableData["reservedTimes"] = reservedTimes
         tableData.saveInBackground()
     }
 }

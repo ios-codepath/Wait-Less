@@ -190,14 +190,15 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 
     func tableCellUpdate(tableData: Table) {
         tableToReserve = tableData
-        let percentageViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CustomerViewController") as!CustomerViewController
-        percentageViewController.delegate = self
-        let navigationController = UINavigationController(rootViewController: percentageViewController)
+        let customerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CustomerViewController") as!CustomerViewController
+        customerViewController.delegate = self
+        customerViewController.reserveTimes = (tableToReserve?.reservedTimes)!
+        let navigationController = UINavigationController(rootViewController: customerViewController)
         navigationController.modalPresentationStyle = UIModalPresentationStyle.popover
 
         let popover = navigationController.popoverPresentationController
         popover?.permittedArrowDirections = UIPopoverArrowDirection(rawValue:0)
-        percentageViewController.preferredContentSize = CGSize(width: 300, height: 175)
+        customerViewController.preferredContentSize = CGSize(width: 300, height: 215)
         popover?.delegate = self
         popover?.sourceView = self.view
         popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
@@ -210,11 +211,13 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         return .none
     }
 
-    func submittedCustomerInfo(customerName: UITextField, phoneNumber: UITextField) {
+    func submittedCustomerInfo(customerName: UITextField, phoneNumber: UITextField, reserveTime: Int) {
         if customerName.text != "" && phoneNumber.text != "" && tableToReserve?.status == true {
-            tableToReserve?.reserveTable(customerName: customerName.text!, phone: phoneNumber.text!)
+            tableToReserve?.reserveTable(customerName: customerName.text!, phone: phoneNumber.text!, reserveTime: reserveTime)
             let index = tables.index(of: tableToReserve!)
             let indexPath = IndexPath(row: index!, section: 0)
+            let cell = collectionView.cellForItem(at: indexPath) as! TableCell
+            cell.onTap()
             collectionView.reloadItems(at: [indexPath])
         }
     }
