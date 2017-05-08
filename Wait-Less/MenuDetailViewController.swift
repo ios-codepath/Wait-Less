@@ -15,7 +15,7 @@ class MenuDetailViewController: UIViewController {
     @IBOutlet weak var menuDescriptionLabel: UILabel!
     @IBOutlet weak var menuImageView: UIImageView!
     
-    var menuItem: Menu!
+    var menuItem: Menu2!
     var numberFormatter: NumberFormatter?
     
     override func viewDidLoad() {

@@ -21,8 +21,8 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 
     var clearButton: UIButton!
     var orderButton: UIButton!
-    var pendingItems = [Menu]()
-    var menuItems = [Menu]()
+    var pendingItems = [Menu2]()
+    var menuItems = [Menu2]()
     var tables = [Table]()
     var tableToReserve: Table?
     let numberFormatter = NumberFormatter()
@@ -55,21 +55,20 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         Table().getTables(success: { tables in
             self.tables = tables
             self.collectionView.reloadData()
+            print("tables count: \(self.tables.count)")
         }, failure: { error in
             print(error)
         })
     }
 
     private func loadMenuItems() {
-        Menu().getMenuItems(success: {
-            menuItems in
+        Menu2().getMenuItems(success: { (menuItems) in
             self.menuItems = menuItems
             self.menuTableView.reloadData()
-            print(self.menuItems)
-        }, failure: {
-            error in
-            print(error)
-        })
+            print("self.menuItems: \(self.menuItems)")
+        }) { (error) in
+            print("error")
+        }
     }
 
     @IBAction func onSummon(_ sender: UIBarButtonItem) {
@@ -95,11 +94,27 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
             let indexPath = IndexPath(row: index, section: Section.pending.rawValue)
             menuTableView.deleteRows(at: [indexPath], with: .fade)
         }
+        orderButton.isEnabled = false
         menuTableView.endUpdates()
     }
 
     @objc private func handleOrder(_ sender: UIButton) {
-        print("order")
+        guard pendingItems.count > 0 else { return }
+        let table = Table()
+        let items = pendingItems.map { return $0.name }
+        let order = Order(menuItems: items as! [String], tableId: "01")
+        
+        order.saveInBackground { (success, error) in
+            if error != nil {
+                print("order error: \(error)")
+                return
+            }
+            if success {
+                print("order successful!")
+                // TODO: jump to order detail screen
+            }
+        }
+        
     }
 
     //MARK: UITableViewDelegate
@@ -224,7 +239,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 }
 
 extension RestaurantViewController: MenuItemTableViewCellDelegate {
-    func menuItemTableViewCellDelegate(_ cell: MenuItemTableViewCell, didOrder menuItem: Menu) {
+    func menuItemTableViewCellDelegate(_ cell: MenuItemTableViewCell, didOrder menuItem: Menu2) {
         if cell.orderButton.title(for: .normal) == "+" {
             let totalPending = pendingItems.count
             let newIndexPath = IndexPath(row: totalPending, section: 1)
@@ -235,6 +250,12 @@ extension RestaurantViewController: MenuItemTableViewCellDelegate {
                 pendingItems.remove(at: indexPath.row)
                 menuTableView.deleteRows(at: [indexPath], with: .automatic)
             }
+        }
+        
+        if pendingItems.count > 0 {
+            orderButton.isEnabled = true
+        } else {
+            orderButton.isEnabled = false
         }
 
         print(menuItem.price)

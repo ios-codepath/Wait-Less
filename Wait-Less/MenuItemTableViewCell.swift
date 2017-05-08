@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuItemTableViewCellDelegate: class {
-    func menuItemTableViewCellDelegate(_ cell: MenuItemTableViewCell, didOrder menuItem: Menu)
+    func menuItemTableViewCellDelegate(_ cell: MenuItemTableViewCell, didOrder menuItem: Menu2)
 }
 
 class MenuItemTableViewCell: UITableViewCell {
@@ -31,7 +31,7 @@ class MenuItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    var menuItem: Menu! {
+    var menuItem: Menu2! {
         didSet {
             menuItemLabel.text = menuItem.name
             
