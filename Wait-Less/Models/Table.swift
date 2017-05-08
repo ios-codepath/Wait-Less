@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 
+// TODO: refactor Table class to conform to PFSublcassing, reference to Menu2 or Order class for this conformance
 class Table: NSObject {
 
     var tableNumber: String?

@@ -10,7 +10,7 @@ import Parse
 
 class Order: PFObject, PFSubclassing {
     
-    @NSManaged var menuItems: [String]
+    @NSManaged var menuItems: [Menu2]
     
     @NSManaged var tableId: String
     
@@ -18,7 +18,7 @@ class Order: PFObject, PFSubclassing {
         super.init()
     }
     
-    convenience init(menuItems: [String], tableId: String) {
+    convenience init(menuItems: [Menu2], tableId: String) {
         self.init()
         self.menuItems = menuItems
         self.tableId = tableId

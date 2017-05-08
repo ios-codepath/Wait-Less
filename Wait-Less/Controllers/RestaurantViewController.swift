@@ -102,7 +102,8 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         guard pendingItems.count > 0 else { return }
         let table = Table()
         let items = pendingItems.map { return $0.name }
-        let order = Order(menuItems: items as! [String], tableId: "01")
+        // TODO: refactor the Table class so the order will retain a reference pointer to table object
+        let order = Order(menuItems: pendingItems, tableId: "01")
         
         order.saveInBackground { (success, error) in
             if error != nil {

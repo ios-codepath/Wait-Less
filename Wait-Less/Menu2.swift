@@ -24,6 +24,7 @@ class Menu2: PFObject, PFSubclassing {
         super.init()
     }
     
+    // TODO: refactor this to get rid of menuData, instead use the field/instance variables in the constructor
     convenience init(menuData: PFObject) {
         self.init()
         self.name = menuData.object(forKey: "name") as! String
