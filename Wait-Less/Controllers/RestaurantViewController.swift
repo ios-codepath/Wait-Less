@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationBannerSwift
 
 enum Section: Int {
     case order
@@ -111,8 +112,14 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
                 return
             }
             if success {
-                print("order successful!")
-                // TODO: jump to order detail screen
+                let successMsg = NotificationBanner(title: "Order Placed!", subtitle: nil, leftView: nil, rightView: nil, style: BannerStyle.success, colors: nil)
+                successMsg.show()
+                
+                // jump to order detail screen
+                if let targetVC = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailBoard") as? OrderDetailViewController {
+                    targetVC.menuItems = self.pendingItems
+                    self.navigationController?.pushViewController(targetVC, animated: true)
+                }
             }
         }
         

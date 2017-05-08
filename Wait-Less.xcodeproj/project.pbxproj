@@ -23,6 +23,15 @@
 		EB74282F1EC0026700E6ECD1 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74282E1EC0026700E6ECD1 /* Bill.swift */; };
 		EB7428331EC008DB00E6ECD1 /* Menu2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7428321EC008DB00E6ECD1 /* Menu2.swift */; };
 		EB7428351EC008F100E6ECD1 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7428341EC008F100E6ECD1 /* BaseModel.swift */; };
+		EB7428381EC0137D00E6ECD1 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7428361EC0137D00E6ECD1 /* MenuItemCell.swift */; };
+		EB7428391EC0137D00E6ECD1 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB7428371EC0137D00E6ECD1 /* MenuItemCell.xib */; };
+		EB74283C1EC0168000E6ECD1 /* TimeEstimateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74283A1EC0168000E6ECD1 /* TimeEstimateCell.swift */; };
+		EB74283D1EC0168000E6ECD1 /* TimeEstimateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB74283B1EC0168000E6ECD1 /* TimeEstimateCell.xib */; };
+		EB7428401EC0198700E6ECD1 /* OrderActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74283E1EC0198700E6ECD1 /* OrderActionCell.swift */; };
+		EB7428411EC0198700E6ECD1 /* OrderActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB74283F1EC0198700E6ECD1 /* OrderActionCell.xib */; };
+		EB7428431EC0207400E6ECD1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7428421EC0207400E6ECD1 /* Parse.framework */; };
+		EB7428451EC0207900E6ECD1 /* NotificationBannerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7428441EC0207900E6ECD1 /* NotificationBannerSwift.framework */; };
+		EB7428471EC0207E00E6ECD1 /* MarqueeLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7428461EC0207E00E6ECD1 /* MarqueeLabel.framework */; };
 		EBE544AF1EBC0B7400FF0B7E /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE544AE1EBC0B7400FF0B7E /* OrderDetailViewController.swift */; };
 		EBE544B11EBC0BED00FF0B7E /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE544B01EBC0BED00FF0B7E /* BillViewController.swift */; };
 		FC7B40F61EAD9EF10076D979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B40F51EAD9EF10076D979 /* AppDelegate.swift */; };
@@ -52,6 +61,15 @@
 		EB74282E1EC0026700E6ECD1 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		EB7428321EC008DB00E6ECD1 /* Menu2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu2.swift; sourceTree = "<group>"; };
 		EB7428341EC008F100E6ECD1 /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		EB7428361EC0137D00E6ECD1 /* MenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
+		EB7428371EC0137D00E6ECD1 /* MenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
+		EB74283A1EC0168000E6ECD1 /* TimeEstimateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeEstimateCell.swift; sourceTree = "<group>"; };
+		EB74283B1EC0168000E6ECD1 /* TimeEstimateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeEstimateCell.xib; sourceTree = "<group>"; };
+		EB74283E1EC0198700E6ECD1 /* OrderActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderActionCell.swift; sourceTree = "<group>"; };
+		EB74283F1EC0198700E6ECD1 /* OrderActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderActionCell.xib; sourceTree = "<group>"; };
+		EB7428421EC0207400E6ECD1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Wait-Less-fclyecljwztpeqggsxahsybttaql/Build/Products/Debug-iphonesimulator/Parse/Parse.framework"; sourceTree = "<group>"; };
+		EB7428441EC0207900E6ECD1 /* NotificationBannerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationBannerSwift.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Wait-Less-fclyecljwztpeqggsxahsybttaql/Build/Products/Debug-iphonesimulator/NotificationBannerSwift/NotificationBannerSwift.framework"; sourceTree = "<group>"; };
+		EB7428461EC0207E00E6ECD1 /* MarqueeLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MarqueeLabel.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Wait-Less-fclyecljwztpeqggsxahsybttaql/Build/Products/Debug-iphonesimulator/MarqueeLabel/MarqueeLabel.framework"; sourceTree = "<group>"; };
 		EBE544AE1EBC0B7400FF0B7E /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		EBE544B01EBC0BED00FF0B7E /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 		FC7B40F21EAD9EF10076D979 /* Wait-Less.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wait-Less.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB7428471EC0207E00E6ECD1 /* MarqueeLabel.framework in Frameworks */,
+				EB7428451EC0207900E6ECD1 /* NotificationBannerSwift.framework in Frameworks */,
+				EB7428431EC0207400E6ECD1 /* Parse.framework in Frameworks */,
 				295770FC9520EBAE5A35DA39 /* Pods_Wait_Less.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,6 +127,12 @@
 				FC97A7321EB0624D00516774 /* MenuItemTableViewCell.swift */,
 				1C4542D61EB2EF0300A9C981 /* MenuCell.swift */,
 				1C4542D81EB2EF7E00A9C981 /* TableCell.swift */,
+				EB7428361EC0137D00E6ECD1 /* MenuItemCell.swift */,
+				EB7428371EC0137D00E6ECD1 /* MenuItemCell.xib */,
+				EB74283A1EC0168000E6ECD1 /* TimeEstimateCell.swift */,
+				EB74283B1EC0168000E6ECD1 /* TimeEstimateCell.xib */,
+				EB74283E1EC0198700E6ECD1 /* OrderActionCell.swift */,
+				EB74283F1EC0198700E6ECD1 /* OrderActionCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -135,6 +162,9 @@
 		C73F278BAAD4BC4A9BCA5A44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB7428461EC0207E00E6ECD1 /* MarqueeLabel.framework */,
+				EB7428441EC0207900E6ECD1 /* NotificationBannerSwift.framework */,
+				EB7428421EC0207400E6ECD1 /* Parse.framework */,
 				606B74E5FF53CD3E47ABD09F /* Pods_Wait_Less.framework */,
 			);
 			name = Frameworks;
@@ -241,9 +271,12 @@
 				1C3B3C001EB50930009AF5FC /* waiter.png in Resources */,
 				1C4542D41EB2ED5100A9C981 /* Grid.png in Resources */,
 				1C4542D51EB2ED5100A9C981 /* List.png in Resources */,
+				EB7428391EC0137D00E6ECD1 /* MenuItemCell.xib in Resources */,
+				EB7428411EC0198700E6ECD1 /* OrderActionCell.xib in Resources */,
 				FC7B41001EAD9EF10076D979 /* Assets.xcassets in Resources */,
 				FC7B40FB1EAD9EF10076D979 /* Main.storyboard in Resources */,
 				1C4542E01EB2FC8200A9C981 /* pasta.jpg in Resources */,
+				EB74283D1EC0168000E6ECD1 /* TimeEstimateCell.xib in Resources */,
 				1C3B3BFE1EB506C7009AF5FC /* table.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,14 +337,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBE544AF1EBC0B7400FF0B7E /* OrderDetailViewController.swift in Sources */,
+				EB7428381EC0137D00E6ECD1 /* MenuItemCell.swift in Sources */,
 				1C4542DC1EB2F06900A9C981 /* Menu.swift in Sources */,
 				1C4542DE1EB2F07900A9C981 /* Table.swift in Sources */,
 				1C4542D91EB2EF7E00A9C981 /* TableCell.swift in Sources */,
 				1CC722821EBC1479003E5B6B /* CustomerViewController.swift in Sources */,
 				1C4542D11EB2ED4600A9C981 /* RestaurantViewController.swift in Sources */,
 				EB74282D1EC0025F00E6ECD1 /* Order.swift in Sources */,
+				EB7428401EC0198700E6ECD1 /* OrderActionCell.swift in Sources */,
 				1C4542D71EB2EF0300A9C981 /* MenuCell.swift in Sources */,
 				FC97A7311EB0600600516774 /* MenuDetailViewController.swift in Sources */,
+				EB74283C1EC0168000E6ECD1 /* TimeEstimateCell.swift in Sources */,
 				EB7428351EC008F100E6ECD1 /* BaseModel.swift in Sources */,
 				EBE544B11EBC0BED00FF0B7E /* BillViewController.swift in Sources */,
 				FC7B40F61EAD9EF10076D979 /* AppDelegate.swift in Sources */,

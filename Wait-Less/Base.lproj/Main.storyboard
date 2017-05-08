@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="56" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Iw-eS-vZb" id="AvU-VD-NAs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Ha Gow" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="at1-Be-HsJ">
@@ -521,7 +521,7 @@
         <!--Order Detail View Controller-->
         <scene sceneID="Vm3-jK-IGJ">
             <objects>
-                <viewController id="mjM-L9-HgE" customClass="OrderDetailViewController" customModule="Wait_Less" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderDetailBoard" id="mjM-L9-HgE" customClass="OrderDetailViewController" customModule="Wait_Less" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Le9-YA-ZX2"/>
                         <viewControllerLayoutGuide type="bottom" id="CvI-oe-9H5"/>
@@ -529,17 +529,32 @@
                     <view key="view" contentMode="scaleToFill" id="90j-Ud-sHw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BHm-PU-OM1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BHm-PU-OM1" firstAttribute="leading" secondItem="90j-Ud-sHw" secondAttribute="leading" id="GBq-5E-1oE"/>
+                            <constraint firstAttribute="trailing" secondItem="BHm-PU-OM1" secondAttribute="trailing" id="Toz-0S-alG"/>
+                            <constraint firstItem="BHm-PU-OM1" firstAttribute="top" secondItem="90j-Ud-sHw" secondAttribute="top" id="uC9-73-Qj2"/>
+                            <constraint firstItem="CvI-oe-9H5" firstAttribute="top" secondItem="BHm-PU-OM1" secondAttribute="bottom" id="w8z-Fd-Lfd"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="BHm-PU-OM1" id="fJR-Uy-dbu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zU-Ee-AxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="1479"/>
+            <point key="canvasLocation" x="213.59999999999999" y="1478.4107946026988"/>
         </scene>
         <!--Bill View Controller-->
         <scene sceneID="fS9-cG-SyO">
             <objects>
-                <viewController id="sNl-sl-rQ1" customClass="BillViewController" customModule="Wait_Less" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BillViewBoard" id="sNl-sl-rQ1" customClass="BillViewController" customModule="Wait_Less" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E03-wl-54y"/>
                         <viewControllerLayoutGuide type="bottom" id="tkh-4g-Zra"/>
@@ -547,12 +562,31 @@
                     <view key="view" contentMode="scaleToFill" id="o2v-fY-LPE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-8j-rsh">
+                                <rect key="frame" x="117" y="404" width="140" height="30"/>
+                                <state key="normal" title="Pay with Credit Card"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bill View: Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-ID-i35">
+                                <rect key="frame" x="16" y="185" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aRg-ID-i35" firstAttribute="centerX" secondItem="o2v-fY-LPE" secondAttribute="centerX" id="KJE-hg-ohk"/>
+                            <constraint firstItem="U2e-8j-rsh" firstAttribute="centerX" secondItem="o2v-fY-LPE" secondAttribute="centerX" id="TPS-6u-7ft"/>
+                            <constraint firstAttribute="trailing" secondItem="aRg-ID-i35" secondAttribute="trailing" constant="20" id="V0j-m2-T6L"/>
+                            <constraint firstItem="aRg-ID-i35" firstAttribute="leading" secondItem="o2v-fY-LPE" secondAttribute="leading" constant="20" id="aMv-U8-OVw"/>
+                            <constraint firstItem="aRg-ID-i35" firstAttribute="top" secondItem="E03-wl-54y" secondAttribute="bottom" constant="60" id="zys-fe-E9e"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMr-2O-Gdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="1479"/>
+            <point key="canvasLocation" x="864.79999999999995" y="1478.4107946026988"/>
         </scene>
         <!--Menu Detail View Controller-->
         <scene sceneID="t6y-Lt-sT1">

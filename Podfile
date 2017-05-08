@@ -7,5 +7,6 @@ target 'Wait-Less' do
 
   # Pods for Wait-Less
   pod 'Parse'
+  pod 'NotificationBannerSwift'
 
 end

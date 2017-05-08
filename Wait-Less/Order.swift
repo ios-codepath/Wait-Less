@@ -28,19 +28,3 @@ class Order: PFObject, PFSubclassing {
         return "Order"
     }    
 }
-
-//class Order: NSObject {
-//    
-//    var menuItems: [Menu] = []
-//    
-//    var table: Table!
-//    
-//    init(menuItems: [Menu], table: Table) {
-//        self.menuItems = menuItems
-//        self.table = table
-//    }
-//    
-//    class func parseName() -> String {
-//        return "Order"
-//    }
-//}
