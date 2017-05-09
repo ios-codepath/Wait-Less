@@ -71,7 +71,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         }
     }
 
-    @IBAction func onSummon(_ sender: UIBarButtonItem) {
+    @IBAction func onSummon(_ sender: UIButton) {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -220,7 +220,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 
         let popover = navigationController.popoverPresentationController
         popover?.permittedArrowDirections = UIPopoverArrowDirection(rawValue:0)
-        customerViewController.preferredContentSize = CGSize(width: 300, height: 215)
+        customerViewController.preferredContentSize = CGSize(width: 300, height: 240)
         popover?.delegate = self
         popover?.sourceView = self.view
         popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
