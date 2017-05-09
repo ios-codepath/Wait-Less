@@ -27,6 +27,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
     var tables = [Table]()
     var tableToReserve: Table?
     let numberFormatter = NumberFormatter()
+    @IBOutlet weak var toggleSegmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +45,9 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         if collectionView.isHidden {
             menuTableView.isHidden = true
             collectionView.isHidden = false
-            loadTables()
         } else {
             menuTableView.isHidden = false
             collectionView.isHidden = true
-            loadMenuItems()
         }
     }
 
@@ -242,6 +241,10 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
             let cell = collectionView.cellForItem(at: indexPath) as! TableCell
             cell.onTap()
             collectionView.reloadItems(at: [indexPath])
+            toggleSegmentedControl.selectedSegmentIndex = 1
+            toggleSegmentedControl.sendActions(for: .valueChanged)
+            loadMenuItems()
+            loadTables()
         }
     }
 }

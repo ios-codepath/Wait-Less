@@ -198,6 +198,7 @@
                     <connections>
                         <outlet property="collectionView" destination="e5S-kK-M2M" id="xWO-NJ-8kh"/>
                         <outlet property="menuTableView" destination="wmg-kt-nJy" id="Gmp-QE-kjC"/>
+                        <outlet property="toggleSegmentedControl" destination="fXD-8q-hrf" id="2xO-an-3dN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
