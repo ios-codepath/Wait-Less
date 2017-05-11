@@ -40,6 +40,14 @@
 		FC7B41031EAD9EF10076D979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7B41011EAD9EF10076D979 /* LaunchScreen.storyboard */; };
 		FC97A7311EB0600600516774 /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97A7301EB0600600516774 /* MenuDetailViewController.swift */; };
 		FC97A7331EB0624D00516774 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97A7321EB0624D00516774 /* MenuItemTableViewCell.swift */; };
+		FCF7576B1EC420BE00A4F712 /* cannelloni.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757631EC420BE00A4F712 /* cannelloni.jpg */; };
+		FCF7576C1EC420BE00A4F712 /* chickenmarsala.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757641EC420BE00A4F712 /* chickenmarsala.jpg */; };
+		FCF7576D1EC420BE00A4F712 /* fettuccinealfredo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757651EC420BE00A4F712 /* fettuccinealfredo.jpg */; };
+		FCF7576E1EC420BE00A4F712 /* lasagne.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757661EC420BE00A4F712 /* lasagne.jpeg */; };
+		FCF7576F1EC420BE00A4F712 /* lobsterravioli.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757671EC420BE00A4F712 /* lobsterravioli.jpg */; };
+		FCF757701EC420BE00A4F712 /* porkshank.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757681EC420BE00A4F712 /* porkshank.jpeg */; };
+		FCF757711EC420BE00A4F712 /* seafoodpasta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757691EC420BE00A4F712 /* seafoodpasta.jpg */; };
+		FCF757721EC420BE00A4F712 /* squashravioli.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF7576A1EC420BE00A4F712 /* squashravioli.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +88,14 @@
 		FC7B41041EAD9EF10076D979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC97A7301EB0600600516774 /* MenuDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		FC97A7321EB0624D00516774 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
+		FCF757631EC420BE00A4F712 /* cannelloni.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cannelloni.jpg; sourceTree = "<group>"; };
+		FCF757641EC420BE00A4F712 /* chickenmarsala.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chickenmarsala.jpg; sourceTree = "<group>"; };
+		FCF757651EC420BE00A4F712 /* fettuccinealfredo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fettuccinealfredo.jpg; sourceTree = "<group>"; };
+		FCF757661EC420BE00A4F712 /* lasagne.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lasagne.jpeg; sourceTree = "<group>"; };
+		FCF757671EC420BE00A4F712 /* lobsterravioli.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lobsterravioli.jpg; sourceTree = "<group>"; };
+		FCF757681EC420BE00A4F712 /* porkshank.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = porkshank.jpeg; sourceTree = "<group>"; };
+		FCF757691EC420BE00A4F712 /* seafoodpasta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seafoodpasta.jpg; sourceTree = "<group>"; };
+		FCF7576A1EC420BE00A4F712 /* squashravioli.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = squashravioli.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +116,14 @@
 		1C4542CD1EB2EC5A00A9C981 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FCF757631EC420BE00A4F712 /* cannelloni.jpg */,
+				FCF757641EC420BE00A4F712 /* chickenmarsala.jpg */,
+				FCF757651EC420BE00A4F712 /* fettuccinealfredo.jpg */,
+				FCF757661EC420BE00A4F712 /* lasagne.jpeg */,
+				FCF757671EC420BE00A4F712 /* lobsterravioli.jpg */,
+				FCF757681EC420BE00A4F712 /* porkshank.jpeg */,
+				FCF757691EC420BE00A4F712 /* seafoodpasta.jpg */,
+				FCF7576A1EC420BE00A4F712 /* squashravioli.jpg */,
 				1C3B3BFF1EB50930009AF5FC /* waiter.png */,
 				1C3B3BFD1EB506C7009AF5FC /* table.png */,
 				1C4542DF1EB2FC8200A9C981 /* pasta.jpg */,
@@ -267,15 +291,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCF7576B1EC420BE00A4F712 /* cannelloni.jpg in Resources */,
 				FC7B41031EAD9EF10076D979 /* LaunchScreen.storyboard in Resources */,
+				FCF7576F1EC420BE00A4F712 /* lobsterravioli.jpg in Resources */,
 				1C3B3C001EB50930009AF5FC /* waiter.png in Resources */,
+				FCF7576D1EC420BE00A4F712 /* fettuccinealfredo.jpg in Resources */,
+				FCF7576E1EC420BE00A4F712 /* lasagne.jpeg in Resources */,
 				1C4542D41EB2ED5100A9C981 /* Grid.png in Resources */,
 				1C4542D51EB2ED5100A9C981 /* List.png in Resources */,
 				EB7428391EC0137D00E6ECD1 /* MenuItemCell.xib in Resources */,
+				FCF757711EC420BE00A4F712 /* seafoodpasta.jpg in Resources */,
+				FCF7576C1EC420BE00A4F712 /* chickenmarsala.jpg in Resources */,
 				EB7428411EC0198700E6ECD1 /* OrderActionCell.xib in Resources */,
 				FC7B41001EAD9EF10076D979 /* Assets.xcassets in Resources */,
+				FCF757701EC420BE00A4F712 /* porkshank.jpeg in Resources */,
 				FC7B40FB1EAD9EF10076D979 /* Main.storyboard in Resources */,
 				1C4542E01EB2FC8200A9C981 /* pasta.jpg in Resources */,
+				FCF757721EC420BE00A4F712 /* squashravioli.jpg in Resources */,
 				EB74283D1EC0168000E6ECD1 /* TimeEstimateCell.xib in Resources */,
 				1C3B3BFE1EB506C7009AF5FC /* table.png in Resources */,
 			);
