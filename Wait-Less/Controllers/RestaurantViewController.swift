@@ -283,15 +283,6 @@ extension RestaurantViewController: MenuItemTableViewCellDelegate {
                 menuTableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
-        
-//        if pendingItems.count > 0 {
-//            orderButton.isEnabled = true
-//        } else {
-//            orderButton.isEnabled = false
-//        }
-//
-//        print(menuItem.price)
-//        print(menuItem.name)
     }
 }
 
