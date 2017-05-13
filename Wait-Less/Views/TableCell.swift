@@ -42,6 +42,10 @@ class TableCell: UICollectionViewCell {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
         self.addGestureRecognizer(tapGesture)
     }
+    
+    override func awakeFromNib() {
+        reserveButton.layer.cornerRadius = 4
+    }
 
     @objc func onTap() {
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]

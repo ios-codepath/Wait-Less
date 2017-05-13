@@ -32,6 +32,8 @@ class CustomerViewController: UIViewController, UITextFieldDelegate {
 
     var reserveTimes = [Int]()
     var selectedTime: UIButton?
+    var blue = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
+    var green = UIColor(red: 47.0/255.0, green: 204.0/255.0, blue: 112.0/255.0, alpha: 1)
     weak var delegate: CustomerViewDelegate?
 
     override func viewDidLoad() {
@@ -46,14 +48,13 @@ class CustomerViewController: UIViewController, UITextFieldDelegate {
         let reserveTimeButtons = [oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton,
                                    sevenButton, eightButton, nineButton, tenButton, elevenButton, twelveButton]
 
-        reserveTimeButtons.forEach { reserveTimeButton in
-            if reserveTimes.contains((reserveTimeButton?.tag)!) {
-                reserveTimeButton?.isSelected = true
-                reserveTimeButton?.backgroundColor = .clear
-                reserveTimeButton?.isUserInteractionEnabled = false
-            }
+        
+        reserveTimeButtons.forEach {
+            reserveTimeButton in
+            reserveTimeButton?.layer.cornerRadius = 4
         }
     }
+    
 
     @IBAction func submitButtonTapped(_ sender: UIButton) {
         if customerName.text == "" {
@@ -76,13 +77,13 @@ class CustomerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func reserveTimeTapped(_ sender: UIButton) {
         if selectedTime?.tag != sender.tag {
             selectedTime?.isSelected = false
-            selectedTime?.backgroundColor = UIColor.red
+            selectedTime?.backgroundColor = blue
             sender.isSelected = !sender.isSelected
-            sender.backgroundColor = (sender.isSelected) ? UIColor.clear : UIColor.red
+            sender.backgroundColor = (sender.isSelected) ? green : blue
             selectedTime = sender
         } else {
             selectedTime?.isSelected = !(selectedTime?.isSelected)!
-            selectedTime?.backgroundColor = (selectedTime?.isSelected)! ? UIColor.clear : UIColor.red
+            selectedTime?.backgroundColor = (selectedTime?.isSelected)! ? green : blue
         }
     }
     
