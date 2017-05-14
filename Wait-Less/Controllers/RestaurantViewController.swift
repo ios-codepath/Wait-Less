@@ -38,6 +38,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         collectionView.dataSource = self
         numberFormatter.locale = Locale.current
         numberFormatter.numberStyle = .currency
+        collectionView.backgroundView = UIImageView.init(image: UIImage(named: "background.jpg"))
         loadTables()
         loadMenuItems()
     }

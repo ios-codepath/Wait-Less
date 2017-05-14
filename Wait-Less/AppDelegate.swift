@@ -11,10 +11,12 @@ import CoreData
 import Parse
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
 
     var window: UIWindow?
-
+    var mask: CALayer?
+    var maskImageView: UIImageView?
+    var storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -22,6 +24,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             configuration.applicationId = "waitlessApp"
             configuration.server = "http://localhost:1337/parse"
         }))
+
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+
+        let imageView = UIImageView(frame: window!.frame)
+        imageView.image = UIImage(named: "splash.jpg")
+        window!.addSubview(imageView)
+        mask = CALayer()
+        mask!.contents = UIImage(named: "mask.png")!.cgImage
+        mask!.contentsGravity = kCAGravityResizeAspect
+        mask!.bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        mask!.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        mask!.position = CGPoint(x: imageView.frame.size.width/2, y: imageView.frame.size.height/2)
+
+        let emptyView = UIViewController()
+        window?.rootViewController = emptyView
+
+        imageView.layer.mask = mask
+        maskImageView = imageView
+
+        animateMask()
+
+        window!.backgroundColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
+        window!.makeKeyAndVisible()
+        UIApplication.shared.isStatusBarHidden = true
+
         return true
     }
 
@@ -92,6 +120,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+
+    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        maskImageView!.layer.mask?.removeFromSuperlayer()
+        maskImageView?.removeFromSuperview()
+        mask?.removeFromSuperlayer()
+        window?.rootViewController = storyboard.instantiateInitialViewController()!
+    }
+
+    func animateMask() {
+        let keyFrameAnimation = CAKeyframeAnimation(keyPath: "bounds")
+        keyFrameAnimation.delegate = self
+        keyFrameAnimation.duration = 1
+        keyFrameAnimation.beginTime = CACurrentMediaTime() + 1 //add delay of 1 second
+        let initalBounds = NSValue(cgRect: mask!.bounds)
+        let secondBounds = NSValue(cgRect: CGRect(x: 0, y: 0, width: 90, height: 90))
+        let finalBounds = NSValue(cgRect: CGRect(x: 0, y: 0, width: 1500, height: 1500))
+        keyFrameAnimation.values = [initalBounds, secondBounds, finalBounds]
+        keyFrameAnimation.keyTimes = [0, 0.3, 1]
+        keyFrameAnimation.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut), CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)]
+        mask!.add(keyFrameAnimation, forKey: "bounds")
     }
 
 }
