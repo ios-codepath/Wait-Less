@@ -13,6 +13,8 @@ class Bill: PFObject, PFSubclassing {
     
     @NSManaged var order: Order
     
+    @NSManaged var isPaid: Bool
+    
     override init() {
         super.init()
     }
@@ -20,6 +22,7 @@ class Bill: PFObject, PFSubclassing {
     convenience init(order: Order) {
         self.init()
         self.order = order
+        self.isPaid = false
     }
     
     public static func parseClassName() -> String {

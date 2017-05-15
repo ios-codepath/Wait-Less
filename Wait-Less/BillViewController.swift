@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import NotificationBannerSwift
 
 extension Double {
     /// Rounds the double to decimal places value
@@ -92,6 +92,16 @@ extension BillViewController: UITableViewDataSource {
         return 4
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        if section == 0 {
+          return "Ordered Items"
+        } else if section == 4 {
+            return "Ready to pay?"
+        }
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
@@ -105,17 +115,18 @@ extension BillViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: billInputCellId, for: indexPath) as! BillInputFieldCell
             cell.name = "Tip:"
             cell.delegate = self
+            return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: billInputCellId, for: indexPath) as! BillInputFieldCell
             cell.name = "Credit Card:"
             cell.delegate = self
+            return cell
         default:
             // button cell as default
             let cell = tableView.dequeueReusableCell(withIdentifier: billActionCellId, for: indexPath) as! BillButtonCell
             cell.delegate = self
+            return cell
         }
-        
-        return UITableViewCell() // default return
     }
 }
 
@@ -130,6 +141,20 @@ extension BillViewController: BillInputFieldCellDelegate, BillButtonCellDelegate
             print("button cleared")
         } else if action == .pay {
             print("pay button tapped")
+            bill.isPaid = true
+            bill.saveInBackground(block: { (success, error) in
+                if error != nil {
+                    let errorMsg = NotificationBanner(title: "Error in processing bill", subtitle: nil, leftView: nil, rightView: nil, style: BannerStyle.warning, colors: nil)
+                    errorMsg.show()
+                    return
+                }
+                if success {
+                    let successMsg = NotificationBanner(title: "Bill Paid, Thank you!", subtitle: nil, leftView: nil, rightView: nil, style: BannerStyle.success, colors: nil)
+                    successMsg.show()
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            })
         }
     }
 }
