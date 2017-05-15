@@ -32,9 +32,7 @@ class TableCell: UICollectionViewCell {
     private func updateCell(withTableData: Table) {
         tableItem.layer.cornerRadius = 3
         tableItem.clipsToBounds = true
-        tableItem.layer.shadowOffset = CGSize(width: 0, height: 1)
-        tableItem.layer.shadowOpacity = 0.25
-        tableItem.layer.shadowRadius = 2
+        tableItem.layer.backgroundColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 0.70).cgColor
         tableNumberLabel.text = tableData.tableNumber
         statusLabel.text = tableData.status ? "Available" : "Reserved"
         capacityLabel.text = String(format: "Capacity: %@", tableData.capacity!)
