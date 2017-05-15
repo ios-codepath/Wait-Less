@@ -33,6 +33,10 @@ The following user stories are  **optional**
 
 Here's a walkthrough of implemented user stories:
 
+**Recorded for the May 15th, 2017 Report:**
+
+![](./screencast/20170514_screen1.gif)
+
 **Recorded for the May 8th, 2017 Report:**
 
 ![](./screencast/20170507_screen1.gif)
