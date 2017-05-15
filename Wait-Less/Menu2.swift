@@ -46,10 +46,10 @@ class Menu2: PFObject, PFSubclassing {
         
         Menu2.query()?.findObjectsInBackground { (objects, error) in
             if error != nil {
-                print("query error: \(error)")
+                print("query error: \(String(describing: error))")
                 failure(error)
             } else {
-                print("menuItems: \(objects)")
+                print("menuItems: \(String(describing: objects))")
                 let menuItems = objects as! [Menu2]
                 success(menuItems)
             }

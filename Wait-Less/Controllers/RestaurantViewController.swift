@@ -111,14 +111,14 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 
     @objc private func handleOrder(_ sender: UIButton) {
         guard pendingItems.count > 0 else { return }
-        let table = Table()
-        let items = pendingItems.map { return $0.name }
+        _ = Table()
+        _ = pendingItems.map { return $0.name }
         // TODO: refactor the Table class so the order will retain a reference pointer to table object
         let order = Order(menuItems: pendingItems, tableId: "001")
         
         order.saveInBackground { (success, error) in
             if error != nil {
-                print("order error: \(error)")
+                print("order error: \(String(describing: error))")
                 return
             }
             if success {
