@@ -18,11 +18,15 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     let orderActionCellId = "OrderActionCell"
     
+    let numberFormatter = NumberFormatter()
+    
     var menuItems: [Menu2]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Your Order"
+        numberFormatter.locale = Locale.current
+        numberFormatter.numberStyle = .currency
         setupTableview()
     }
     
@@ -47,6 +51,18 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.estimatedRowHeight = 85
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMenuItemDetail" {
+            let destination = segue.destination as! MenuDetailViewController
+            let cell = sender as! MenuItemCell
+            let indexPath = tableView.indexPath(for: cell)
+            if let row = indexPath?.row {
+                destination.menuItem = menuItems![row]
+                destination.numberFormatter = numberFormatter
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -94,7 +110,7 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            // TODO: handle select event here
+            self.performSegue(withIdentifier: "showMenuItemDetail", sender: tableView.cellForRow(at: indexPath))
         }
     }
     
