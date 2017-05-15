@@ -27,6 +27,8 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
     var tables = [Table]()
     var tableToReserve: Table?
     let numberFormatter = NumberFormatter()
+    var selectedIndexPath: IndexPath?
+    @IBOutlet weak var toggleSegmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,19 +38,26 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         collectionView.dataSource = self
         numberFormatter.locale = Locale.current
         numberFormatter.numberStyle = .currency
+        collectionView.backgroundView = UIImageView.init(image: UIImage(named: "background.jpg"))
         loadTables()
         loadMenuItems()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let indexPath = selectedIndexPath {
+            menuTableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 
     @IBAction func onToggle(_ sender: UISegmentedControl) {
         if collectionView.isHidden {
             menuTableView.isHidden = true
             collectionView.isHidden = false
-            loadTables()
         } else {
             menuTableView.isHidden = false
             collectionView.isHidden = true
-            loadMenuItems()
         }
     }
 
@@ -72,7 +81,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         }
     }
 
-    @IBAction func onSummon(_ sender: UIBarButtonItem) {
+    @IBAction func onSummon(_ sender: UIButton) {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -97,6 +106,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         }
         orderButton.isEnabled = false
         menuTableView.endUpdates()
+        menuTableView.reloadSections(IndexSet([1]), with: .fade)
     }
 
     @objc private func handleOrder(_ sender: UIButton) {
@@ -147,8 +157,11 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == Section.order.rawValue {
-            return ""
+            return "Menu"
         } else {
+            if pendingItems.count == 0 {
+                return ""
+            }
             return "Selected Items"
         }
     }
@@ -172,6 +185,10 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == Section.order.rawValue {
+            return nil
+        }
+        
+        if pendingItems.count == 0 {
             return nil
         }
 
@@ -198,6 +215,10 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 
         return footer
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+    }
 
     //MARK: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -221,7 +242,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
 
         let popover = navigationController.popoverPresentationController
         popover?.permittedArrowDirections = UIPopoverArrowDirection(rawValue:0)
-        customerViewController.preferredContentSize = CGSize(width: 300, height: 215)
+        customerViewController.preferredContentSize = CGSize(width: 300, height: 240)
         popover?.delegate = self
         popover?.sourceView = self.view
         popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
@@ -242,6 +263,10 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
             let cell = collectionView.cellForItem(at: indexPath) as! TableCell
             cell.onTap()
             collectionView.reloadItems(at: [indexPath])
+            toggleSegmentedControl.selectedSegmentIndex = 1
+            toggleSegmentedControl.sendActions(for: .valueChanged)
+            loadMenuItems()
+            loadTables()
         }
     }
 }
@@ -259,15 +284,6 @@ extension RestaurantViewController: MenuItemTableViewCellDelegate {
                 menuTableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
-        
-        if pendingItems.count > 0 {
-            orderButton.isEnabled = true
-        } else {
-            orderButton.isEnabled = false
-        }
-
-        print(menuItem.price)
-        print(menuItem.name)
     }
 }
 

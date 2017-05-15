@@ -40,6 +40,7 @@ class Table: NSObject {
             print(table)
             tables.append(Table(tableData: table))
         }
+        tables.sort(by: ({$0.tableNumber! < $1.tableNumber!}))
         return tables
     }
 
