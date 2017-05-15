@@ -572,26 +572,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-8j-rsh">
-                                <rect key="frame" x="117" y="404" width="140" height="30"/>
-                                <state key="normal" title="Pay with Credit Card"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bill View: Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRg-ID-i35">
-                                <rect key="frame" x="16" y="185" width="343" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1eL-tc-lhg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="aRg-ID-i35" firstAttribute="centerX" secondItem="o2v-fY-LPE" secondAttribute="centerX" id="KJE-hg-ohk"/>
-                            <constraint firstItem="U2e-8j-rsh" firstAttribute="centerX" secondItem="o2v-fY-LPE" secondAttribute="centerX" id="TPS-6u-7ft"/>
-                            <constraint firstAttribute="trailing" secondItem="aRg-ID-i35" secondAttribute="trailing" constant="20" id="V0j-m2-T6L"/>
-                            <constraint firstItem="aRg-ID-i35" firstAttribute="leading" secondItem="o2v-fY-LPE" secondAttribute="leading" constant="20" id="aMv-U8-OVw"/>
-                            <constraint firstItem="aRg-ID-i35" firstAttribute="top" secondItem="E03-wl-54y" secondAttribute="bottom" constant="60" id="zys-fe-E9e"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="1eL-tc-lhg" id="l4x-lH-tnn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aMr-2O-Gdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

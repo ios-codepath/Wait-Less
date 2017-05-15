@@ -8,6 +8,7 @@
 
 import Parse
 
+public typealias BillItem = (name: String, price: Double)
 class Bill: PFObject, PFSubclassing {
     
     @NSManaged var order: Order

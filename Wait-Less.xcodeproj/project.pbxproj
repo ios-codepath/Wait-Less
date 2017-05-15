@@ -22,6 +22,12 @@
 		1C67D3A11EC7F80100DE39E8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C67D3A01EC7F80100DE39E8 /* background.jpg */; };
 		1CC722821EBC1479003E5B6B /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC722811EBC1479003E5B6B /* CustomerViewController.swift */; };
 		295770FC9520EBAE5A35DA39 /* Pods_Wait_Less.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606B74E5FF53CD3E47ABD09F /* Pods_Wait_Less.framework */; };
+		EB741C591EC9419D00F7673E /* BillItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB741C571EC9419D00F7673E /* BillItemCell.swift */; };
+		EB741C5A1EC9419D00F7673E /* BillItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB741C581EC9419D00F7673E /* BillItemCell.xib */; };
+		EB741C5D1EC943B400F7673E /* BillInputFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB741C5B1EC943B400F7673E /* BillInputFieldCell.swift */; };
+		EB741C5E1EC943B400F7673E /* BillInputFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB741C5C1EC943B400F7673E /* BillInputFieldCell.xib */; };
+		EB741C611EC9445B00F7673E /* BillButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB741C5F1EC9445B00F7673E /* BillButtonCell.swift */; };
+		EB741C621EC9445B00F7673E /* BillButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB741C601EC9445B00F7673E /* BillButtonCell.xib */; };
 		EB74282D1EC0025F00E6ECD1 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74282C1EC0025F00E6ECD1 /* Order.swift */; };
 		EB74282F1EC0026700E6ECD1 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB74282E1EC0026700E6ECD1 /* Bill.swift */; };
 		EB7428331EC008DB00E6ECD1 /* Menu2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7428321EC008DB00E6ECD1 /* Menu2.swift */; };
@@ -71,6 +77,12 @@
 		44483B10638E6FD8D660EA7E /* Pods-Wait-Less.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wait-Less.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wait-Less/Pods-Wait-Less.release.xcconfig"; sourceTree = "<group>"; };
 		606B74E5FF53CD3E47ABD09F /* Pods_Wait_Less.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wait_Less.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		757E8ED10FE6AA805ECE279F /* Pods-Wait-Less.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wait-Less.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wait-Less/Pods-Wait-Less.debug.xcconfig"; sourceTree = "<group>"; };
+		EB741C571EC9419D00F7673E /* BillItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillItemCell.swift; sourceTree = "<group>"; };
+		EB741C581EC9419D00F7673E /* BillItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BillItemCell.xib; sourceTree = "<group>"; };
+		EB741C5B1EC943B400F7673E /* BillInputFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillInputFieldCell.swift; sourceTree = "<group>"; };
+		EB741C5C1EC943B400F7673E /* BillInputFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BillInputFieldCell.xib; sourceTree = "<group>"; };
+		EB741C5F1EC9445B00F7673E /* BillButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillButtonCell.swift; sourceTree = "<group>"; };
+		EB741C601EC9445B00F7673E /* BillButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BillButtonCell.xib; sourceTree = "<group>"; };
 		EB74282C1EC0025F00E6ECD1 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		EB74282E1EC0026700E6ECD1 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		EB7428321EC008DB00E6ECD1 /* Menu2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu2.swift; sourceTree = "<group>"; };
@@ -166,6 +178,12 @@
 				EB74283B1EC0168000E6ECD1 /* TimeEstimateCell.xib */,
 				EB74283E1EC0198700E6ECD1 /* OrderActionCell.swift */,
 				EB74283F1EC0198700E6ECD1 /* OrderActionCell.xib */,
+				EB741C571EC9419D00F7673E /* BillItemCell.swift */,
+				EB741C581EC9419D00F7673E /* BillItemCell.xib */,
+				EB741C5B1EC943B400F7673E /* BillInputFieldCell.swift */,
+				EB741C5C1EC943B400F7673E /* BillInputFieldCell.xib */,
+				EB741C5F1EC9445B00F7673E /* BillButtonCell.swift */,
+				EB741C601EC9445B00F7673E /* BillButtonCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -304,6 +322,7 @@
 				1C67D3A11EC7F80100DE39E8 /* background.jpg in Resources */,
 				FC7B41031EAD9EF10076D979 /* LaunchScreen.storyboard in Resources */,
 				FCF7576F1EC420BE00A4F712 /* lobsterravioli.jpg in Resources */,
+				EB741C5A1EC9419D00F7673E /* BillItemCell.xib in Resources */,
 				1C3B3C001EB50930009AF5FC /* waiter.png in Resources */,
 				FCF7576D1EC420BE00A4F712 /* fettuccinealfredo.jpg in Resources */,
 				FCF7576E1EC420BE00A4F712 /* lasagne.jpeg in Resources */,
@@ -313,6 +332,7 @@
 				FCF757711EC420BE00A4F712 /* seafoodpasta.jpg in Resources */,
 				FCF7576C1EC420BE00A4F712 /* chickenmarsala.jpg in Resources */,
 				EB7428411EC0198700E6ECD1 /* OrderActionCell.xib in Resources */,
+				EB741C5E1EC943B400F7673E /* BillInputFieldCell.xib in Resources */,
 				FC7B41001EAD9EF10076D979 /* Assets.xcassets in Resources */,
 				FCF757701EC420BE00A4F712 /* porkshank.jpeg in Resources */,
 				1C0BD6901EC914C700C00137 /* mask.png in Resources */,
@@ -321,6 +341,7 @@
 				1C4542E01EB2FC8200A9C981 /* pasta.jpg in Resources */,
 				FCF757721EC420BE00A4F712 /* squashravioli.jpg in Resources */,
 				EB74283D1EC0168000E6ECD1 /* TimeEstimateCell.xib in Resources */,
+				EB741C621EC9445B00F7673E /* BillButtonCell.xib in Resources */,
 				1C3B3BFE1EB506C7009AF5FC /* table.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +410,9 @@
 				1C4542D11EB2ED4600A9C981 /* RestaurantViewController.swift in Sources */,
 				EB74282D1EC0025F00E6ECD1 /* Order.swift in Sources */,
 				EB7428401EC0198700E6ECD1 /* OrderActionCell.swift in Sources */,
+				EB741C611EC9445B00F7673E /* BillButtonCell.swift in Sources */,
 				1C4542D71EB2EF0300A9C981 /* MenuCell.swift in Sources */,
+				EB741C5D1EC943B400F7673E /* BillInputFieldCell.swift in Sources */,
 				FC97A7311EB0600600516774 /* MenuDetailViewController.swift in Sources */,
 				EB74283C1EC0168000E6ECD1 /* TimeEstimateCell.swift in Sources */,
 				EB7428351EC008F100E6ECD1 /* BaseModel.swift in Sources */,
@@ -398,6 +421,7 @@
 				EB7428331EC008DB00E6ECD1 /* Menu2.swift in Sources */,
 				FC97A7331EB0624D00516774 /* MenuItemTableViewCell.swift in Sources */,
 				EB74282F1EC0026700E6ECD1 /* Bill.swift in Sources */,
+				EB741C591EC9419D00F7673E /* BillItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

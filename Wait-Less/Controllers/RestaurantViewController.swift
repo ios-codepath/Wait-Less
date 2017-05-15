@@ -114,7 +114,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         let table = Table()
         let items = pendingItems.map { return $0.name }
         // TODO: refactor the Table class so the order will retain a reference pointer to table object
-        let order = Order(menuItems: pendingItems, tableId: "01")
+        let order = Order(menuItems: pendingItems, tableId: "001")
         
         order.saveInBackground { (success, error) in
             if error != nil {
@@ -128,6 +128,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
                 // jump to order detail screen
                 if let targetVC = self.storyboard?.instantiateViewController(withIdentifier: "OrderDetailBoard") as? OrderDetailViewController {
                     targetVC.menuItems = self.pendingItems
+                    targetVC.curOrder = order
                     self.navigationController?.pushViewController(targetVC, animated: true)
                 }
             }

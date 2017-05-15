@@ -22,6 +22,8 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     var menuItems: [Menu2]?
     
+    var curOrder: Order!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Your Order"
@@ -112,12 +114,13 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
         if indexPath.section == 0 {
             self.performSegue(withIdentifier: "showMenuItemDetail", sender: tableView.cellForRow(at: indexPath))
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func orderActionCell(_ cell: OrderActionCell, buttonType: OrderActionButton) {
         if buttonType == .billButton {
-            print("tapped bill button")
             if let billVC = storyboard?.instantiateViewController(withIdentifier: "BillViewBoard") as? BillViewController {
+                billVC.order = curOrder
                 self.navigationController?.pushViewController(billVC, animated: true)
             }
         } else if buttonType == .callWaiterButton {
