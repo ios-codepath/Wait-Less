@@ -189,7 +189,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2M7-d8-Wm2">
-                                <rect key="frame" x="159" y="193.5" width="56" height="30"/>
+                                <rect key="frame" x="159.5" y="193.5" width="56" height="30"/>
                                 <state key="normal" title="Reserve">
                                     <color key="titleColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -555,26 +555,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S1e-9r-QIi">
-                                <rect key="frame" x="0.0" y="86" width="375" height="210"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="KCo-CL-8Gj"/>
                                     <constraint firstAttribute="height" constant="210" id="hm9-Zf-f9b"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Item Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRc-M0-cne">
-                                <rect key="frame" x="16" y="28" width="343" height="24"/>
+                                <rect key="frame" x="16" y="72" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAb-YX-4sQ">
-                                <rect key="frame" x="309" y="60" width="50" height="18"/>
+                                <rect key="frame" x="309" y="104" width="50" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.68888300660000001" green="0.71366006140000005" blue="0.73448425530000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aj-Mt-bol">
-                                <rect key="frame" x="16" y="304" width="343" height="21"/>
+                                <rect key="frame" x="16" y="348" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -596,6 +596,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ah7-OG-nOk"/>
                     <connections>
+                        <outlet property="descriptionHeightConstraint" destination="MVs-09-xT4" id="nEl-Nf-nVA"/>
                         <outlet property="menuDescriptionLabel" destination="8aj-Mt-bol" id="kh5-aV-2X7"/>
                         <outlet property="menuImageView" destination="S1e-9r-QIi" id="J5j-TM-F2a"/>
                         <outlet property="nameLabel" destination="KRc-M0-cne" id="tN7-b8-Wzd"/>
@@ -616,4 +617,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="6vd-1O-rsM"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

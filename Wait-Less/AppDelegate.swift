@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CAAnimationDelegate {
     var purple = UIColor(red: 116.0/255.0, green: 94.0/255.0, blue: 196.0/255.0, alpha: 1)
     var blue = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
     var green = UIColor(red: 47.0/255.0, green: 204.0/255.0, blue: 112.0/255.0, alpha: 1)
+    var powderBlue = UIColor(red: 184.0/255.0, green: 202.0/255.0, blue: 242.0/255.0, alpha: 1)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
