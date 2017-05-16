@@ -125,7 +125,7 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
             }
         } else if buttonType == .callWaiterButton {
             // TODO: present the call waiter view
-            print("tapped call waiter button")
+            NotificationCenter.default.post(name: Notification.Name("SummonWaiter"), object: nil)
         }
     }
 }

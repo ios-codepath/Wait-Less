@@ -8,14 +8,15 @@
 
 import UIKit
 import NotificationBannerSwift
+import NVActivityIndicatorView
 
 enum Section: Int {
     case order
     case pending
 }
 
-class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
-UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDelegate, CustomerViewDelegate {
+class RestaurantViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,UICollectionViewDelegate,
+UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDelegate, CustomerViewDelegate, NVActivityIndicatorViewable {
     
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -28,7 +29,12 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
     var tableToReserve: Table?
     let numberFormatter = NumberFormatter()
     var selectedIndexPath: IndexPath?
+    var progress: UInt8 = 0
     @IBOutlet weak var toggleSegmentedControl: UISegmentedControl!
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +45,7 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         numberFormatter.locale = Locale.current
         numberFormatter.numberStyle = .currency
         collectionView.backgroundView = UIImageView.init(image: UIImage(named: "background.jpg"))
+        NotificationCenter.default.addObserver(self, selector: #selector(onSummon(_:)), name: Notification.Name("SummonWaiter"), object: nil)
         loadTables()
         loadMenuItems()
     }
@@ -81,7 +88,22 @@ UICollectionViewDelegate, UICollectionViewDataSource, UIPopoverPresentationContr
         }
     }
 
+    @objc private func updateProgress(timer: Timer) {
+        progress = progress &+ 1
+        let normalizedProgress = Double(progress) / Double(UInt8.max)
+        if normalizedProgress > 0.99 {
+            timer.invalidate()
+            progress = 0
+            NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        }
+    }
+
     @IBAction func onSummon(_ sender: UIButton) {
+        Timer.scheduledTimer(timeInterval: 0.03, target: self, selector: #selector(updateProgress(timer:)), userInfo: nil, repeats: true)
+        let color = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 0.7)
+        let activityData = ActivityData(size: CGSize.init(width: 100, height: 100), message: "Waiter...", messageFont: UIFont.boldSystemFont(ofSize: 18), type: .lineScale, color: .white, padding: 0, displayTimeThreshold: 0, minimumDisplayTime: 0, backgroundColor: color, textColor: .white)
+
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

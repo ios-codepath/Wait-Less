@@ -9,5 +9,6 @@ target 'Wait-Less' do
   pod 'Parse'
   pod 'NotificationBannerSwift'
   pod 'SkyFloatingLabelTextField'
+  pod 'NVActivityIndicatorView'
 
 end
