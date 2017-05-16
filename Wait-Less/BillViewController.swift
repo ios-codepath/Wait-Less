@@ -49,8 +49,13 @@ class BillViewController: UIViewController {
         
         setupTableView()
         tableView.reloadData()
-        tableView.backgroundColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 0.70)
-        tableView.backgroundView = UIImageView.init(image: UIImage(named: "background.jpg"))
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.topItem?.title = ""
+            navigationBar.tintColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
+            navigationBar.titleTextAttributes = [
+                NSForegroundColorAttributeName : UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
+            ]
+        }
     }
     
     private func setupTableView() {
@@ -69,6 +74,8 @@ class BillViewController: UIViewController {
         
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.backgroundColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 0.70)
+        tableView.backgroundView = UIImageView.init(image: UIImage(named: "background.jpg"))
     }
 }
 

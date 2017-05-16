@@ -23,10 +23,21 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var menuItems: [Menu2]?
     
     var curOrder: Order!
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Order Details"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Your Order"
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.topItem?.title = ""
+            navigationBar.tintColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
+            navigationBar.titleTextAttributes = [
+                NSForegroundColorAttributeName : UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
+            ]
+        }
         numberFormatter.locale = Locale.current
         numberFormatter.numberStyle = .currency
         setupTableview()
@@ -40,6 +51,8 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 0.70)
+        tableView.backgroundView = UIImageView.init(image: UIImage(named: "background.jpg"))
         
         let menuItemCellNib = UINib(nibName: "MenuItemCell", bundle: Bundle.main)
         tableView.register(menuItemCellNib, forCellReuseIdentifier: menuCellId)
@@ -100,6 +113,8 @@ class OrderDetailViewController: UIViewController, UITableViewDataSource, UITabl
             let cell = tableView.dequeueReusableCell(withIdentifier: timeEstimateCellId, for: indexPath) as! TimeEstimateCell
             
             cell.textLabel?.text = "5 Minutes Remaining..."
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFontWeightRegular)
             return cell
         }
         

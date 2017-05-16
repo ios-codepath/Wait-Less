@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="1132" y="792.95352323838085"/>
         </scene>
-        <!--Customer Information-->
+        <!--Guest Information-->
         <scene sceneID="9AT-L3-UD3">
             <objects>
-                <viewController storyboardIdentifier="CustomerViewController" title="Customer Information" id="Atl-F4-Wu8" customClass="CustomerViewController" customModule="Wait_Less" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomerViewController" title="Guest Information" id="Atl-F4-Wu8" customClass="CustomerViewController" customModule="Wait_Less" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aWR-fq-drZ"/>
                         <viewControllerLayoutGuide type="bottom" id="gx6-Yj-UtU"/>
@@ -514,10 +514,10 @@
             </objects>
             <point key="canvasLocation" x="214" y="1470"/>
         </scene>
-        <!--Bill View Controller-->
+        <!--Guest Check-->
         <scene sceneID="fS9-cG-SyO">
             <objects>
-                <viewController storyboardIdentifier="BillViewBoard" id="sNl-sl-rQ1" customClass="BillViewController" customModule="Wait_Less" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BillViewBoard" title="Guest Check" id="sNl-sl-rQ1" customClass="BillViewController" customModule="Wait_Less" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E03-wl-54y"/>
                         <viewControllerLayoutGuide type="bottom" id="tkh-4g-Zra"/>
@@ -620,7 +620,7 @@
         <image name="waiter.png" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6vd-1O-rsM"/>
+        <segue reference="uQR-Az-LVL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.3707177639" green="0.25714370609999998" blue="0.75468015669999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>

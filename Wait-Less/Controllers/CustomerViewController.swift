@@ -46,10 +46,15 @@ class CustomerViewController: UIViewController, UITextFieldDelegate {
         let reserveTimeButtons = [oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton,
                                    sevenButton, eightButton, nineButton, tenButton, elevenButton, twelveButton]
 
-        
         reserveTimeButtons.forEach {
             reserveTimeButton in
             reserveTimeButton?.layer.cornerRadius = 4
+        }
+
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.titleTextAttributes = [
+                NSForegroundColorAttributeName : UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
+            ]
         }
     }
     
