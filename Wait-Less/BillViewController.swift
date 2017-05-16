@@ -49,6 +49,8 @@ class BillViewController: UIViewController {
         
         setupTableView()
         tableView.reloadData()
+        tableView.backgroundColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 0.70)
+        tableView.backgroundView = UIImageView.init(image: UIImage(named: "background.jpg"))
     }
     
     private func setupTableView() {
@@ -101,7 +103,7 @@ extension BillViewController: UITableViewDataSource {
         }
         return nil
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.section {
@@ -113,11 +115,13 @@ extension BillViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: billInputCellId, for: indexPath) as! BillInputFieldCell
+            cell.creditCardField.isHidden = true
             cell.name = "Tip:"
             cell.delegate = self
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: billInputCellId, for: indexPath) as! BillInputFieldCell
+            cell.inputField.isHidden = true
             cell.name = "Credit Card:"
             cell.delegate = self
             return cell
@@ -138,9 +142,9 @@ extension BillViewController: BillInputFieldCellDelegate, BillButtonCellDelegate
     
     func billButtonCell(_ cell: BillButtonCell, action: BillButtons) {
         if action == .clear {
-            print("button cleared")
+            tableView.reloadData()
         } else if action == .pay {
-            print("pay button tapped")
+
             bill.isPaid = true
             bill.saveInBackground(block: { (success, error) in
                 if error != nil {

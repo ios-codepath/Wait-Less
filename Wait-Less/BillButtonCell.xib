@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,33 +16,41 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="92"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="390" height="91"/>
+                <rect key="frame" x="0.0" y="0.0" width="390" height="91.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IhK-RM-HkW">
-                        <rect key="frame" x="115" y="30" width="105" height="30"/>
+                        <rect key="frame" x="18" y="8" width="354" height="75.5"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M73-EL-qdv">
-                                <rect key="frame" x="0.0" y="0.0" width="36" height="30"/>
-                                <color key="tintColor" red="1" green="0.020543188050000001" blue="0.14217721420000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Clear"/>
+                                <rect key="frame" x="0.0" y="23" width="42" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="didTapClearButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cgG-dZ-Mv5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pn2-0p-n91">
-                                <rect key="frame" x="56" y="0.0" width="49" height="30"/>
-                                <state key="normal" title="Pay Bill"/>
+                                <rect key="frame" x="305" y="23" width="49" height="30"/>
+                                <state key="normal" title="Pay Bill">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapPayBillButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gQB-ga-HNw"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Pn2-0p-n91" firstAttribute="baseline" secondItem="M73-EL-qdv" secondAttribute="baseline" id="Pef-CN-Won"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="IhK-RM-HkW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EMV-5o-gDl"/>
-                    <constraint firstItem="IhK-RM-HkW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="115" id="q9D-fR-6U2"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="IhK-RM-HkW" secondAttribute="bottom" id="7gF-Us-55E"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Pn2-0p-n91" secondAttribute="trailing" constant="10" id="90l-xj-bTy"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="M73-EL-qdv" secondAttribute="leading" constant="-10" id="IuL-jy-GmD"/>
+                    <constraint firstItem="IhK-RM-HkW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="KZJ-Jg-GfR"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="69" y="78"/>

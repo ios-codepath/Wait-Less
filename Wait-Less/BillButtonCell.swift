@@ -23,23 +23,15 @@ class BillButtonCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        // not selectable
-        super.setSelected(false, animated: animated)
-        
+        self.backgroundColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 0.70)
+        self.separatorInset = UIEdgeInsetsMake(0, 1000, 0, 0)
     }
     
     @IBAction func didTapClearButton(_ sender: Any) {
         delegate?.billButtonCell(self, action: BillButtons.clear)
     }
-    
-    
+
     @IBAction func didTapPayBillButton(_ sender: Any) {
         delegate?.billButtonCell(self, action: BillButtons.pay)
     }
-    
-    
 }
