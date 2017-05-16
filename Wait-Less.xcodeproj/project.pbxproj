@@ -17,7 +17,6 @@
 		1C4542D71EB2EF0300A9C981 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4542D61EB2EF0300A9C981 /* MenuCell.swift */; };
 		1C4542D91EB2EF7E00A9C981 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4542D81EB2EF7E00A9C981 /* TableCell.swift */; };
 		1C4542DC1EB2F06900A9C981 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4542DB1EB2F06900A9C981 /* Menu.swift */; };
-		1C4542DE1EB2F07900A9C981 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4542DD1EB2F07900A9C981 /* Table.swift */; };
 		1C4542E01EB2FC8200A9C981 /* pasta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C4542DF1EB2FC8200A9C981 /* pasta.jpg */; };
 		1C67D3A11EC7F80100DE39E8 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1C67D3A01EC7F80100DE39E8 /* background.jpg */; };
 		1CC722821EBC1479003E5B6B /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC722811EBC1479003E5B6B /* CustomerViewController.swift */; };
@@ -71,7 +70,6 @@
 		1C4542D61EB2EF0300A9C981 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuCell.swift; path = Views/MenuCell.swift; sourceTree = "<group>"; };
 		1C4542D81EB2EF7E00A9C981 /* TableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableCell.swift; path = Views/TableCell.swift; sourceTree = "<group>"; };
 		1C4542DB1EB2F06900A9C981 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Models/Menu.swift; sourceTree = "<group>"; };
-		1C4542DD1EB2F07900A9C981 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Table.swift; path = Models/Table.swift; sourceTree = "<group>"; };
 		1C4542DF1EB2FC8200A9C981 /* pasta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pasta.jpg; path = Resources/pasta.jpg; sourceTree = "<group>"; };
 		1C67D3A01EC7F80100DE39E8 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Resources/background.jpg; sourceTree = "<group>"; };
 		1CC722811EBC1479003E5B6B /* CustomerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomerViewController.swift; path = Controllers/CustomerViewController.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				1C4542DB1EB2F06900A9C981 /* Menu.swift */,
-				1C4542DD1EB2F07900A9C981 /* Table.swift */,
 				EB74282C1EC0025F00E6ECD1 /* Order.swift */,
 				EB74282E1EC0026700E6ECD1 /* Bill.swift */,
 				EB7428321EC008DB00E6ECD1 /* Menu2.swift */,
@@ -407,7 +404,6 @@
 				EBE544AF1EBC0B7400FF0B7E /* OrderDetailViewController.swift in Sources */,
 				EB7428381EC0137D00E6ECD1 /* MenuItemCell.swift in Sources */,
 				1C4542DC1EB2F06900A9C981 /* Menu.swift in Sources */,
-				1C4542DE1EB2F07900A9C981 /* Table.swift in Sources */,
 				1C4542D91EB2EF7E00A9C981 /* TableCell.swift in Sources */,
 				1CC722821EBC1479003E5B6B /* CustomerViewController.swift in Sources */,
 				1C4542D11EB2ED4600A9C981 /* RestaurantViewController.swift in Sources */,
