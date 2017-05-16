@@ -33,11 +33,11 @@ class Menu2: PFObject, PFSubclassing {
         self.imageName = menuData.object(forKey: "imageName") as! String
     }
     
-    class func menuItemsArray(array: [PFObject]) -> [Menu] {
-        var menuItems = [Menu]()
+    class func menuItemsArray(array: [PFObject]) -> [Menu2] {
+        var menuItems = [Menu2]()
         for menu in array {
             print(menu)
-            menuItems.append(Menu(menuData: menu))
+            menuItems.append(Menu2(menuData: menu))
         }
         return menuItems
     }

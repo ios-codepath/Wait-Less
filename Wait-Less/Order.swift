@@ -12,16 +12,16 @@ class Order: PFObject, PFSubclassing {
     
     @NSManaged var menuItems: [Menu2]
     
-    @NSManaged var tableId: String
+    @NSManaged var table: Table2
     
     override init() {
         super.init()
     }
     
-    convenience init(menuItems: [Menu2], tableId: String) {
+    convenience init(menuItems: [Menu2], table: Table2) {
         self.init()
         self.menuItems = menuItems
-        self.tableId = tableId
+        self.table = table
     }
     
     public static func parseClassName() -> String {

@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol TableCellDelegate {
-    @objc optional func tableCellUpdate(tableData: Table) -> Void
+    @objc optional func tableCellUpdate(tableData: Table2) -> Void
 }
 
 class TableCell: UICollectionViewCell {
@@ -23,19 +23,19 @@ class TableCell: UICollectionViewCell {
 
     weak var delegate: TableCellDelegate?
 
-    var tableData: Table! {
+    var tableData: Table2! {
         didSet {
             updateCell(withTableData: tableData)
         }
     }
 
-    private func updateCell(withTableData: Table) {
+    private func updateCell(withTableData: Table2) {
         tableItem.layer.cornerRadius = 3
         tableItem.clipsToBounds = true
         tableItem.layer.backgroundColor = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 0.70).cgColor
         tableNumberLabel.text = tableData.tableNumber
         statusLabel.text = tableData.status ? "Available" : "Reserved"
-        capacityLabel.text = String(format: "Capacity: %@", tableData.capacity!)
+        capacityLabel.text = String(format: "Capacity: %@", tableData.capacity)
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onTap))
         self.addGestureRecognizer(tapGesture)
