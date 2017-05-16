@@ -6,10 +6,11 @@
 //  Copyright © 2017 Jonathan Wong. All rights reserved.
 //
 
+/*
 import UIKit
 import Parse
 
-// TODO: refactor Table class to conform to PFSublcassing, reference to Menu2 or Order class for this conformance
+
 class Table: NSObject {
 
     var tableNumber: String?
@@ -71,3 +72,4 @@ class Table: NSObject {
         tableData.saveInBackground()
     }
 }
+*/

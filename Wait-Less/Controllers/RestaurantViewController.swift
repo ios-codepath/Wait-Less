@@ -25,8 +25,8 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
     var orderButton: UIButton!
     var pendingItems = [Menu2]()
     var menuItems = [Menu2]()
-    var tables = [Table]()
-    var tableToReserve: Table?
+    var tables = [Table2]()
+    var tableToReserve: Table2?
     let numberFormatter = NumberFormatter()
     var selectedIndexPath: IndexPath?
     var progress: UInt8 = 0
@@ -69,7 +69,7 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
     }
 
     private func loadTables() {
-        Table().getTables(success: { tables in
+        Table2().getTables(success: { tables in
             self.tables = tables
             self.collectionView.reloadData()
             print("tables count: \(self.tables.count)")
@@ -133,10 +133,13 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
 
     @objc private func handleOrder(_ sender: UIButton) {
         guard pendingItems.count > 0 else { return }
-        _ = Table()
+        let curTable = Table2()
+        curTable.tableNumber = "002"
+        curTable.status = false
+        curTable.capacity = "8" // shouldn't it be an integer?
         _ = pendingItems.map { return $0.name }
-        // TODO: refactor the Table class so the order will retain a reference pointer to table object
-        let order = Order(menuItems: pendingItems, tableId: "001")
+
+        let order = Order(menuItems: pendingItems, table: curTable)
         
         order.saveInBackground { (success, error) in
             if error != nil {
@@ -255,7 +258,7 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
         return cell
     }
 
-    func tableCellUpdate(tableData: Table) {
+    func tableCellUpdate(tableData: Table2) {
         tableToReserve = tableData
         let customerViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CustomerViewController") as!CustomerViewController
         customerViewController.delegate = self

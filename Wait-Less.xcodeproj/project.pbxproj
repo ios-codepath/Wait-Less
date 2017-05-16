@@ -41,6 +41,7 @@
 		EB7428431EC0207400E6ECD1 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7428421EC0207400E6ECD1 /* Parse.framework */; };
 		EB7428451EC0207900E6ECD1 /* NotificationBannerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7428441EC0207900E6ECD1 /* NotificationBannerSwift.framework */; };
 		EB7428471EC0207E00E6ECD1 /* MarqueeLabel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7428461EC0207E00E6ECD1 /* MarqueeLabel.framework */; };
+		EB89070A1ECAA17900B452B0 /* Table2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8907091ECAA17900B452B0 /* Table2.swift */; };
 		EBE544AF1EBC0B7400FF0B7E /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE544AE1EBC0B7400FF0B7E /* OrderDetailViewController.swift */; };
 		EBE544B11EBC0BED00FF0B7E /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE544B01EBC0BED00FF0B7E /* BillViewController.swift */; };
 		FC7B40F61EAD9EF10076D979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B40F51EAD9EF10076D979 /* AppDelegate.swift */; };
@@ -96,6 +97,7 @@
 		EB7428421EC0207400E6ECD1 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Wait-Less-fclyecljwztpeqggsxahsybttaql/Build/Products/Debug-iphonesimulator/Parse/Parse.framework"; sourceTree = "<group>"; };
 		EB7428441EC0207900E6ECD1 /* NotificationBannerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationBannerSwift.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Wait-Less-fclyecljwztpeqggsxahsybttaql/Build/Products/Debug-iphonesimulator/NotificationBannerSwift/NotificationBannerSwift.framework"; sourceTree = "<group>"; };
 		EB7428461EC0207E00E6ECD1 /* MarqueeLabel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MarqueeLabel.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/Wait-Less-fclyecljwztpeqggsxahsybttaql/Build/Products/Debug-iphonesimulator/MarqueeLabel/MarqueeLabel.framework"; sourceTree = "<group>"; };
+		EB8907091ECAA17900B452B0 /* Table2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table2.swift; sourceTree = "<group>"; };
 		EBE544AE1EBC0B7400FF0B7E /* OrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		EBE544B01EBC0BED00FF0B7E /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 		FC7B40F21EAD9EF10076D979 /* Wait-Less.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wait-Less.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +199,7 @@
 				EB74282E1EC0026700E6ECD1 /* Bill.swift */,
 				EB7428321EC008DB00E6ECD1 /* Menu2.swift */,
 				EB7428341EC008F100E6ECD1 /* BaseModel.swift */,
+				EB8907091ECAA17900B452B0 /* Table2.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				FC97A7331EB0624D00516774 /* MenuItemTableViewCell.swift in Sources */,
 				EB74282F1EC0026700E6ECD1 /* Bill.swift in Sources */,
 				EB741C591EC9419D00F7673E /* BillItemCell.swift in Sources */,
+				EB89070A1ECAA17900B452B0 /* Table2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
