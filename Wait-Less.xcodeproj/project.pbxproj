@@ -57,6 +57,7 @@
 		FCF757701EC420BE00A4F712 /* porkshank.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757681EC420BE00A4F712 /* porkshank.jpeg */; };
 		FCF757711EC420BE00A4F712 /* seafoodpasta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF757691EC420BE00A4F712 /* seafoodpasta.jpg */; };
 		FCF757721EC420BE00A4F712 /* squashravioli.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCF7576A1EC420BE00A4F712 /* squashravioli.jpg */; };
+		FCF757761ECAA13300A4F712 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF757741ECAA13300A4F712 /* MenuItemTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		FCF757681EC420BE00A4F712 /* porkshank.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = porkshank.jpeg; sourceTree = "<group>"; };
 		FCF757691EC420BE00A4F712 /* seafoodpasta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seafoodpasta.jpg; sourceTree = "<group>"; };
 		FCF7576A1EC420BE00A4F712 /* squashravioli.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = squashravioli.jpg; sourceTree = "<group>"; };
+		FCF757741ECAA13300A4F712 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				EB741C5C1EC943B400F7673E /* BillInputFieldCell.xib */,
 				EB741C5F1EC9445B00F7673E /* BillButtonCell.swift */,
 				EB741C601EC9445B00F7673E /* BillButtonCell.xib */,
+				FCF757741ECAA13300A4F712 /* MenuItemTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				1C3B3C001EB50930009AF5FC /* waiter.png in Resources */,
 				FCF7576D1EC420BE00A4F712 /* fettuccinealfredo.jpg in Resources */,
 				FCF7576E1EC420BE00A4F712 /* lasagne.jpeg in Resources */,
+				FCF757761ECAA13300A4F712 /* MenuItemTableViewCell.xib in Resources */,
 				1C4542D41EB2ED5100A9C981 /* Grid.png in Resources */,
 				1C4542D51EB2ED5100A9C981 /* List.png in Resources */,
 				EB7428391EC0137D00E6ECD1 /* MenuItemCell.xib in Resources */,

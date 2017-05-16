@@ -32,8 +32,6 @@ class CustomerViewController: UIViewController, UITextFieldDelegate {
 
     var reserveTimes = [Int]()
     var selectedTime: UIButton?
-    var blue = UIColor(red: 80.0/255.0, green: 102.0/255.0, blue: 161.0/255.0, alpha: 1)
-    var green = UIColor(red: 47.0/255.0, green: 204.0/255.0, blue: 112.0/255.0, alpha: 1)
     weak var delegate: CustomerViewDelegate?
 
     override func viewDidLoad() {
@@ -77,13 +75,13 @@ class CustomerViewController: UIViewController, UITextFieldDelegate {
     @IBAction func reserveTimeTapped(_ sender: UIButton) {
         if selectedTime?.tag != sender.tag {
             selectedTime?.isSelected = false
-            selectedTime?.backgroundColor = blue
+            selectedTime?.backgroundColor = (UIApplication.shared.delegate as! AppDelegate).blue
             sender.isSelected = !sender.isSelected
-            sender.backgroundColor = (sender.isSelected) ? green : blue
+            sender.backgroundColor = (sender.isSelected) ? (UIApplication.shared.delegate as! AppDelegate).green : (UIApplication.shared.delegate as! AppDelegate).blue
             selectedTime = sender
         } else {
             selectedTime?.isSelected = !(selectedTime?.isSelected)!
-            selectedTime?.backgroundColor = (selectedTime?.isSelected)! ? green : blue
+            selectedTime?.backgroundColor = (selectedTime?.isSelected)! ? (UIApplication.shared.delegate as! AppDelegate).green : (UIApplication.shared.delegate as! AppDelegate).blue
         }
     }
     

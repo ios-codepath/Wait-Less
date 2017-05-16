@@ -48,6 +48,11 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
         NotificationCenter.default.addObserver(self, selector: #selector(onSummon(_:)), name: Notification.Name("SummonWaiter"), object: nil)
         loadTables()
         loadMenuItems()
+        
+        menuTableView.rowHeight = 200
+        menuTableView.backgroundColor = UIColor.white
+        menuTableView.separatorStyle = .none
+        menuTableView.register(UINib(nibName: "MenuItemTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "MenuItemTableViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,8 +179,10 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if section == Section.order.rawValue {
             return 0
+        } else if section == Section.pending.rawValue && pendingItems.count > 0 {
+            return 80
         }
-        return 100
+        return 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -205,6 +212,38 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 44))
+        header.backgroundColor = UIColor.white
+        let titleLabel = UILabel(frame: .zero)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [NSLayoutConstraint]()
+        let views: [String: AnyObject] = ["titleLabel" : titleLabel,
+                                          "view" : view]
+        header.addSubview(titleLabel)
+        
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[titleLabel]", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[titleLabel]", options: [], metrics: nil, views: views)
+        
+        titleLabel.font = UIFont.systemFont(ofSize: 15.0, weight: UIFontWeightThin)
+        titleLabel.textColor = (UIApplication.shared.delegate as! AppDelegate).blue
+        NSLayoutConstraint.activate(constraints)
+        
+        if section == Section.order.rawValue {
+            titleLabel.text = "MENU"
+        } else if section == Section.pending.rawValue && pendingItems.count > 0 {
+            titleLabel.text = "SELECTED ITEMS"
+        } else {
+            return nil
+        }
+        
+        return header
+    }
 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == Section.order.rawValue {
@@ -216,21 +255,24 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
         }
 
         let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 100))
+        footer.backgroundColor = UIColor.white
         clearButton = UIButton(type: .roundedRect)
         clearButton.translatesAutoresizingMaskIntoConstraints = false
         clearButton.setTitle("Clear", for: .normal)
         clearButton.addTarget(self, action: #selector(handleClear(_:)), for: .touchUpInside)
+        clearButton.tintColor = (UIApplication.shared.delegate as! AppDelegate).blue
         footer.addSubview(clearButton)
 
         orderButton = UIButton(type: .roundedRect)
         orderButton.translatesAutoresizingMaskIntoConstraints = false
         orderButton.setTitle("Order", for: .normal)
         orderButton.addTarget(self, action: #selector(handleOrder(_:)), for: .touchUpInside)
+        orderButton.tintColor = (UIApplication.shared.delegate as! AppDelegate).blue
         footer.addSubview(orderButton)
 
         let views: [String: AnyObject] = ["clearButton" : clearButton,
                                           "orderButton" : orderButton,
-                                          "view": view]
+                                          "view" : view]
         var constraints = [NSLayoutConstraint]()
         constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|-[clearButton(==orderButton)]-[orderButton]-|", options: [NSLayoutFormatOptions.alignAllFirstBaseline], metrics: nil, views: views)
         constraints += NSLayoutConstraint.constraints(withVisualFormat: "V:|-[clearButton]-|", options: [], metrics: nil, views: views)
@@ -241,6 +283,8 @@ UICollectionViewDataSource, UIPopoverPresentationControllerDelegate, TableCellDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
+        let cell = tableView.cellForRow(at: indexPath)
+        performSegue(withIdentifier: "showMenuDetailViewController", sender: cell)
     }
 
     //MARK: UICollectionViewDelegate
